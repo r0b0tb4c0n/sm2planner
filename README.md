@@ -1,6 +1,6 @@
 # Space Marine 2 Talent Calculator
 
-🚀 **Live Demo**: [https://your-domain.com](https://your-domain.com)
+🚀 **Live Demo**: [https://sm2planner.flame6.com](https://sm2planner.flame6.com)
 
 A web-based build planner for *Warhammer 40,000: Space Marine 2* that allows players to create, customize, and share talent builds via URL.
 
