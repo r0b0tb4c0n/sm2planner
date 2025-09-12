@@ -1,13 +1,16 @@
 # Space Marine 2 Talent Calculator
 
+🚀 **Live Demo**: [https://your-domain.com](https://your-domain.com)
+
 A web-based build planner for *Warhammer 40,000: Space Marine 2* that allows players to create, customize, and share talent builds via URL.
 
 ## Features
 
-- **6 Classes**: Assault, Bulwark, Tactical, Devastator, Sniper, and Vanguard
+- **6 Classes**: Assault, Bulwark, Tactical, Heavy, Sniper, and Vanguard
 - **Perk Trees**: Core and Team sections with column-based selection (one perk per column)
-- **Prestige Perks**: Select up to 4 out of 8 prestige perks per class
+- **Prestige Perks**: Select up to 8 prestige perks per class
 - **URL Sharing**: Builds are encoded in the URL for easy sharing (no database required)
+- **Issue Reporting**: Built-in feedback system with Discord integration
 - **Responsive Design**: Works on desktop and mobile devices
 - **Space Marine Theme**: Dark UI with gold/blue highlights inspired by the game
 
@@ -20,10 +23,21 @@ A web-based build planner for *Warhammer 40,000: Space Marine 2* that allows pla
 
 ### Installation
 
-1. Clone or download this repository
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/SM2-Talent-Calculator.git
+   cd SM2-Talent-Calculator
+   ```
+
 2. Install dependencies:
    ```bash
    npm install
+   ```
+
+3. (Optional) Set up environment variables for issue reporting:
+   ```bash
+   cp .env.example .env
+   # Edit .env and add your Discord webhook URL
    ```
 
 ### Development
@@ -83,9 +97,23 @@ Builds are encoded using this format:
 - **classId**: Class identifier (assault, bulwark, tactical, etc.)
 - **payload**: Base64URL-encoded binary data containing perk selections
 
+## Environment Variables
+
+Create a `.env` file for local development:
+
+```bash
+# Discord webhook URL for issue reporting (optional)
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN
+
+# Server port (optional, defaults to 3000)
+PORT=3000
+```
+
+**Note**: The Discord webhook is optional. If not configured, the issue reporting feature will show an error message.
+
 ## Data Structure
 
-The talent data is stored in `data.json` following this schema:
+The talent data is stored in separate JSON files in the `data/` directory following this schema:
 
 ```json
 {

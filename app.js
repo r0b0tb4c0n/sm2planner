@@ -683,6 +683,36 @@ class TalentCalculator {
     }
     
     async submitIssueReport(description, contactName, contactPlatform) {
+        // Use backend endpoint instead of direct Discord webhook
+        const buildString = this.encodeBuild();
+        const currentUrl = window.location.href;
+        
+        let buildContext = '';
+        if (buildString && this.currentClass) {
+            buildContext = `Class: ${this.currentClass.name}\nBuild: ${currentUrl}`;
+        }
+        
+        const payload = {
+            description,
+            contactName,
+            contactPlatform,
+            buildContext
+        };
+        
+        const response = await fetch('/api/report-issue', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+        
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.error || `HTTP error! status: ${response.status}`);
+        }
+        
+        /* OLD DIRECT WEBHOOK CODE - KEPT FOR REFERENCE
         const webhookUrl = 'https://discord.com/api/webhooks/1416087094870409466/v_d67gpxvpJxPvJQoKdeH9DNMucpCH7JmZRhdnTkF_cs84zg-wj9q2nhe3KLQhdT_gey';
         
         // Get current build info for context
@@ -745,6 +775,7 @@ class TalentCalculator {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
+        */
     }
     
     showReportStatus(message, type) {
