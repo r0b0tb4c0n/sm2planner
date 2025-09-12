@@ -1,0 +1,267 @@
+{
+  "id": "sniper",
+  "name": "Sniper",
+  "icon": "resources/Sniper/sniperclassicon.webp",
+  "sections": [
+    {
+      "id": "core",
+      "name": "CORE",
+      "columns": [
+        {
+          "id": "core-col-1",
+          "name": "COMBAT",
+          "perks": [
+            {
+              "id": "sniper-02",
+              "name": "Block Break",
+              "desc": "Shots will penetrate enemy Block Stances, dealing 50% of the usual Damage",
+              "img": "resources/Sniper/sniper02.webp"
+            },
+            {
+              "id": "sniper-10",
+              "name": "Melee Mastery",
+              "desc": "Melee Damage increases by 20% against Majoris-level and higher enemies",
+              "img": "resources/Sniper/sniper10.webp"
+            },
+            {
+              "id": "sniper-18",
+              "name": "Medicae Adept",
+              "desc": "You revive Squad members 30% faster",
+              "img": "resources/Sniper/sniper18.webp"
+            }
+          ]
+        },
+        {
+          "id": "core-col-2",
+          "name": "TACTICS",
+          "perks": [
+            {
+              "id": "sniper-03",
+              "name": "High Capacity",
+              "desc": "The maximum amount of Ammo you can carry increases by 10%",
+              "img": "resources/Sniper/sniper03.webp"
+            },
+            {
+              "id": "sniper-11",
+              "name": "Vantage Point",
+              "desc": "Remaining stationary for 2 seconds increases your Ranged Weapons' Damage by 20%",
+              "img": "resources/Sniper/sniper11.webp"
+            },
+            {
+              "id": "sniper-19",
+              "name": "Adaptability",
+              "desc": "Reloading while having Low Ammo or manually activating Camo Cloak increases Melee Damage by 25% for 10 seconds",
+              "img": "resources/Sniper/sniper19.webp"
+            }
+          ]
+        },
+        {
+          "id": "core-col-3",
+          "name": "MASTERY",
+          "perks": [
+            {
+              "id": "sniper-04",
+              "name": "Iron Grip",
+              "desc": "Weapon Spread and Recoil are reduced by 20% and Ranged Damage against Terminus-level enemies is increased by 15% for Bolt Sniper Rifles and Stalker Bolt Rifles",
+              "img": "resources/Sniper/sniper04.webp"
+            },
+            {
+              "id": "sniper-12",
+              "name": "Dexterous Hands",
+              "desc": "Bolt Carbines reload 20% faster, and their Weapon Spread and Recoil are reduced by 15%",
+              "img": "resources/Sniper/sniper12.webp"
+            },
+            {
+              "id": "sniper-20",
+              "name": "Lethal Efficiency",
+              "desc": "Killing more than 1 enemy with one shot from a Las Fusil restores its charge by 1",
+              "img": "resources/Sniper/sniper20.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "team",
+      "name": "TEAM",
+      "columns": [
+        {
+          "id": "team-col-1",
+          "name": "SQUAD",
+          "perks": [
+            {
+              "id": "sniper-05",
+              "name": "Marksmanship",
+              "desc": "Headshot Damage increases by 10% for all Squad Members",
+              "img": "resources/Sniper/sniper05.webp"
+            },
+            {
+              "id": "sniper-13",
+              "name": "Precision Targeting",
+              "desc": "Weapon Spread is reduced by 25% and Ranged Damage against Extremis-level enemies is increased by 15% for all Squad Members",
+              "img": "resources/Sniper/sniper13.webp"
+            },
+            {
+              "id": "sniper-21",
+              "name": "Squad Renewal",
+              "desc": "A Headshot kill restores Ability Charge by 10% for any Squad Member",
+              "img": "resources/Sniper/sniper21.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gear",
+      "name": "GEAR",
+      "columns": [
+        {
+          "id": "gear-col-1",
+          "name": "PRIMARY",
+          "perks": [
+            {
+              "id": "sniper-06",
+              "name": "Purification",
+              "desc": "Manually activating Camo Cloak removes negative Status Effects and restores all Contested Health",
+              "img": "resources/Sniper/sniper06.webp"
+            },
+            {
+              "id": "sniper-14",
+              "name": "Efficient Readiness",
+              "desc": "Camo Cloak increases movement speed by 20%, and manually activating Camo Cloak automatically reloads Ranged Weapons",
+              "img": "resources/Sniper/sniper14.webp"
+            },
+            {
+              "id": "sniper-22",
+              "name": "Renewal",
+              "desc": "A Headshot kill restores Camo Cloak's Charge by 5%",
+              "img": "resources/Sniper/sniper22.webp"
+            }
+          ]
+        },
+        {
+          "id": "gear-col-2",
+          "name": "SECONDARY",
+          "perks": [
+            {
+              "id": "sniper-07",
+              "name": "Guardian Protocol",
+              "desc": "When you are reviving a Squad Member, Camo Cloak hides you and the Squad Member for 5 seconds without spending Charge. Cooldown is 30 seconds.",
+              "img": "resources/Sniper/sniper07.webp"
+            },
+            {
+              "id": "sniper-15",
+              "name": "Targeted Shot",
+              "desc": "The first Ranged Attack that breaks Camo Cloak deals 75% more Damage",
+              "img": "resources/Sniper/sniper15.webp"
+            },
+            {
+              "id": "sniper-23",
+              "name": "Tactical Ambush",
+              "desc": "The first Melee Attack that breaks Camo Cloak deals 150% more Damage",
+              "img": "resources/Sniper/sniper23.webp"
+            }
+          ]
+        },
+        {
+          "id": "gear-col-3",
+          "name": "EQUIPMENT",
+          "perks": [
+            {
+              "id": "sniper-08",
+              "name": "Persistence",
+              "desc": "When Camo Cloak deactivates, you take 20% less Health Damage, do not lose control upon taking Heavy Hits, and cannot be knocked back for 10 seconds",
+              "img": "resources/Sniper/sniper08.webp"
+            },
+            {
+              "id": "sniper-16",
+              "name": "Lingering Concealment",
+              "desc": "After performing an attack that breaks Camo Cloak, you remain hidden for 2 seconds",
+              "img": "resources/Sniper/sniper16.webp"
+            },
+            {
+              "id": "sniper-24",
+              "name": "Ambush",
+              "desc": "When Camo Cloak deactivates, it startles nearby enemies. They will temporarily lose control or get knocked back. Cooldown is 25 seconds.",
+              "img": "resources/Sniper/sniper24.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "name": "SIGNATURE",
+      "columns": [
+        {
+          "id": "signature-col-1",
+          "name": "ABILITY",
+          "perks": [
+            {
+              "id": "sniper-09",
+              "name": "Evasion",
+              "desc": "After a perfectly timed Dodge, Camo Cloak automatically activates without spending Charge for 5 seconds. Cooldown is 30 seconds.",
+              "img": "resources/Sniper/sniper09.webp"
+            },
+            {
+              "id": "sniper-17",
+              "name": "Emergency Override",
+              "desc": "When you receive Lethal Damage, Camo Cloak automatically activates without spending Charge and you become Invulnerable for 5 seconds. Cooldown is 180 seconds.",
+              "img": "resources/Sniper/sniper17.webp"
+            },
+            {
+              "id": "sniper-25",
+              "name": "Pattern of Excellence",
+              "desc": "Performing 3 consecutive Headshots restores Equipment Charge by 1. Cooldown is 30 seconds.",
+              "img": "resources/Sniper/sniper25.webp"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "prestige": [
+    {
+      "id": "prestige-sniper-1",
+      "name": "Emperor's Grace",
+      "desc": "When Camo Cloak activates, you become Invulnerable to Damage for 2 seconds",
+      "img": "I.png"
+    },
+    {
+      "id": "prestige-sniper-2",
+      "name": "Versatile Precision",
+      "desc": "Performing a kill with your Secondary Weapon restores 15% of your Primary Weapon's Ammo. Cooldown is 15 seconds",
+      "img": "II.png"
+    },
+    {
+      "id": "prestige-sniper-3",
+      "name": "Material Upgrade",
+      "desc": "Equipment Damage radius increases by 15%.",
+      "img": "III.png"
+    },
+    {
+      "id": "prestige-sniper-4",
+      "name": "Versatility",
+      "desc": "After switching Weapons, your Secondary Weapon does 20% more Damage. The effect lasts until reloading or switching back to your Primary Weapon",
+      "img": "IV.png"
+    },
+    {
+      "id": "prestige-sniper-5",
+      "name": "Indomitable Spirit",
+      "desc": "While performing a Gun Strike, you do not lose control upon taking Heavy Hits and you cannot be knocked back",
+      "img": "V.png"
+    },
+    {
+      "id": "prestige-sniper-6",
+      "name": "Conviction",
+      "desc": "When your Armour is fully depleted, you take 25% less Health Damage for 15 seconds",
+      "img": "VI.png"
+    },
+    {
+      "id": "prestige-sniper-7",
+      "name": "Exacting Focus",
+      "desc": "After a Gun Strike, you deal 20% more Ranged Damage for 10 seconds.",
+      "img": "VII.png"
+    }
+  ]
+} 

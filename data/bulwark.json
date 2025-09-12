@@ -1,0 +1,267 @@
+{
+  "id": "bulwark",
+  "name": "Bulwark",
+  "icon": "resources/Bulwark/bulwarkclassicon.webp",
+  "sections": [
+    {
+      "id": "core",
+      "name": "CORE",
+      "columns": [
+        {
+          "id": "core-col-1",
+          "name": "COMBAT",
+          "perks": [
+            {
+              "id": "bulwark-02",
+              "name": "Conviction",
+              "desc": "When your Armour is fully depleted, you take 25% less Health Damage for 10 seconds",
+              "img": "resources/Bulwark/bulwark02.webp"
+            },
+            {
+              "id": "bulwark-10",
+              "name": "Intimidating Aura",
+              "desc": "A perfectly timed Parry deals area-of-effect Damage that scales with difficulty within a 5-metre radius.",
+              "img": "resources/Bulwark/bulwark10.webp"
+            },
+            {
+              "id": "bulwark-18",
+              "name": "Forward Momentum",
+              "desc": "After a Shield Bash or Thunder Hammer Pommel Smash, Melee Damage increases by 30% for 10 seconds",
+              "img": "resources/Bulwark/bulwark18.webp"
+            }
+          ]
+        },
+        {
+          "id": "core-col-2",
+          "name": "TACTICS",
+          "perks": [
+            {
+              "id": "bulwark-03",
+              "name": "Armour of Contempt",
+              "desc": "When you Block a Ranged Attack, enemies within a 10-metre radius take the Damage instead",
+              "img": "resources/Bulwark/bulwark03.webp"
+            },
+            {
+              "id": "bulwark-11",
+              "name": "Shock and Awe",
+              "desc": "Enemies in a Shock area take 25% more Damage",
+              "img": "resources/Bulwark/bulwark11.webp"
+            },
+            {
+              "id": "bulwark-19",
+              "name": "Scrambled Targeting",
+              "desc": "If you are surrounded by 5 or more enemies, you take 25% less Damage from Ranged Attacks",
+              "img": "resources/Bulwark/bulwark19.webp"
+            }
+          ]
+        },
+        {
+          "id": "core-col-3",
+          "name": "MASTERY",
+          "perks": [
+            {
+              "id": "bulwark-04",
+              "name": "Defensive Advantage",
+              "desc": "A perfectly timed Parry or Block creates a Shock area for 5 seconds. Cooldown is 30 seconds.",
+              "img": "resources/Bulwark/bulwark04.webp"
+            },
+            {
+              "id": "bulwark-12",
+              "name": "Steel Within",
+              "desc": "When your Health is less than 50%, you take 30% less Health Damage",
+              "img": "resources/Bulwark/bulwark12.webp"
+            },
+            {
+              "id": "bulwark-20",
+              "name": "Armour Reinforcement",
+              "desc": "Non-Finisher Gun Strikes restore 1 Armour Segment",
+              "img": "resources/Bulwark/bulwark20.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "team",
+      "name": "TEAM",
+      "columns": [
+        {
+          "id": "team-col-1",
+          "name": "SQUAD",
+          "perks": [
+            {
+              "id": "bulwark-05",
+              "name": "Focused Restoration",
+              "desc": "Every 30 seconds, all Squad Members automatically restore 1 Armour Segment",
+              "img": "resources/Bulwark/bulwark05.webp"
+            },
+            {
+              "id": "bulwark-13",
+              "name": "Advanced Conditioning",
+              "desc": "Contested Health fades 50% more slowly for all Squad Members",
+              "img": "resources/Bulwark/bulwark13.webp"
+            },
+            {
+              "id": "bulwark-21",
+              "name": "Effective Formation",
+              "desc": "All Squad members take 20% less Health Damage from Extremis- and Terminus-level enemies",
+              "img": "resources/Bulwark/bulwark21.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gear",
+      "name": "GEAR",
+      "columns": [
+        {
+          "id": "gear-col-1",
+          "name": "PRIMARY",
+          "perks": [
+            {
+              "id": "bulwark-06",
+              "name": "Purity of Purpose",
+              "desc": "The banner deals Damage that scales with difficulty over time to enemies within its area of effect",
+              "img": "resources/Bulwark/bulwark06.webp"
+            },
+            {
+              "id": "bulwark-14",
+              "name": "Rapid Regeneration",
+              "desc": "The banner restores Armour 300% faster, but its Duration is reduced to 10 seconds",
+              "img": "resources/Bulwark/bulwark14.webp"
+            },
+            {
+              "id": "bulwark-22",
+              "name": "Focused Strength",
+              "desc": "Shield Bash knocks enemies back and makes them lose control for a longer period of time",
+              "img": "resources/Bulwark/bulwark22.webp"
+            }
+          ]
+        },
+        {
+          "id": "gear-col-2",
+          "name": "SECONDARY",
+          "perks": [
+            {
+              "id": "bulwark-07",
+              "name": "Concussive Force",
+              "desc": "Shield Bash deals 200% more Damage. Thunder Hammer Pommel Smash deals 100% more damage and deals area-of-effect Damage within a 7 meter radius. Cooldown is 5 seconds.",
+              "img": "resources/Bulwark/bulwark07.webp"
+            },
+            {
+              "id": "bulwark-15",
+              "name": "Glory's Shield",
+              "desc": "All Squad Members within the banner's area of effect take 20% less Damage, and the banner lasts 20% longer",
+              "img": "resources/Bulwark/bulwark15.webp"
+            },
+            {
+              "id": "bulwark-23",
+              "name": "Invigorating Icon",
+              "desc": "When the banner is activated, all Squad Members regain maximum Contested Health, but it recharges 50% slower",
+              "img": "resources/Bulwark/bulwark23.webp"
+            }
+          ]
+        },
+        {
+          "id": "gear-col-3",
+          "name": "EQUIPMENT",
+          "perks": [
+            {
+              "id": "bulwark-08",
+              "name": "Rejuvenating Effect",
+              "desc": "When the banner is activated, it revives Incapacitated Squad Members within its area of effect",
+              "img": "resources/Bulwark/bulwark08.webp"
+            },
+            {
+              "id": "bulwark-16",
+              "name": "Merciless Resolve",
+              "desc": "After a Shield Bash or Thunder Hammer Pommel Smash, Melee Damage increases by 15%, you do not lose control upon taking Heavy Hits and you cannot be knocked back for 10 seconds",
+              "img": "resources/Bulwark/bulwark16.webp"
+            },
+            {
+              "id": "bulwark-24",
+              "name": "Inspiration",
+              "desc": "All Squad Members within the banner's area of effect deal 20% more Damage",
+              "img": "resources/Bulwark/bulwark24.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "name": "SIGNATURE",
+      "columns": [
+        {
+          "id": "signature-col-1",
+          "name": "ABILITY",
+          "perks": [
+            {
+              "id": "bulwark-09",
+              "name": "Emergency Countermeasure",
+              "desc": "When your Armour is depleted, a reserve Shock Grenade automatically detonated at your position. Cooldown is 90 seconds.",
+              "img": "resources/Bulwark/bulwark09.webp"
+            },
+            {
+              "id": "bulwark-17",
+              "name": "Defensive Mastery",
+              "desc": "A perfectly timed Parry instantly Incapacitates a Majoris- or Extremis-level enemy. Cooldown is 90 seconds.",
+              "img": "resources/Bulwark/bulwark17.webp"
+            },
+            {
+              "id": "bulwark-25",
+              "name": "Armoured Advance",
+              "desc": "If you have Armour remaining, you do not lose control upon taking Heavy Hits and you cannot be knocked back",
+              "img": "resources/Bulwark/bulwark25.webp"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "prestige": [
+    {
+      "id": "prestige-bulwark-1",
+      "name": "Auxiliary Reload",
+      "desc": "Melee kills of Extremis-level or higher enemies restore your Primary Weapon's Ammo by 1 Magazine",
+      "img": "I.png"
+    },
+    {
+      "id": "prestige-bulwark-2",
+      "name": "Resilience",
+      "desc": "Medicae Stimms restore 40% more Health",
+      "img": "II.png"
+    },
+    {
+      "id": "prestige-bulwark-3",
+      "name": "Overcharge",
+      "desc": "Charged Attack Damage increases by 20%",
+      "img": "III.png"
+    },
+    {
+      "id": "prestige-bulwark-4",
+      "name": "Powerful Shot",
+      "desc": "Ranged Damage increases by 20%",
+      "img": "IV.png"
+    },
+    {
+      "id": "prestige-bulwark-5",
+      "name": "Masterful Defence",
+      "desc": "Ability Charge is restored by 1% for every blocked Ranged Attack",
+      "img": "V.png"
+    },
+    {
+      "id": "prestige-bulwark-6",
+      "name": "Standard Bearer",
+      "desc": "When Chapter Banner activates, you become Invulnerable to Damage for 2 seconds",
+      "img": "VI.png"
+    },
+    {
+      "id": "prestige-bulwark-7",
+      "name": "Emboldened Stand",
+      "desc": "When the Chapter Banner is active, all Squad Members do not lose control upon taking Heavy Hits and cannot be knocked back within its zone.",
+      "img": "VII.png"
+    }
+  ]
+} 

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Marine 2 Talent Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-title">
+                <div class="header-subtitle">ARMOURING HALL /</div>
+                <h1 class="title">PERKS CUSTOMISATION</h1>
+            </div>
+            <div class="controls">
+                <button id="reportIssueBtn" class="btn btn-warning">Report Issue</button>
+                <button id="shareBtn" class="btn btn-primary">Share Build</button>
+                <button id="resetClassBtn" class="btn btn-secondary">Reset Class</button>
+                <button id="resetAllBtn" class="btn btn-danger">Reset All</button>
+            </div>
+        </header>
+
+        <main class="main">
+            <!-- Class Selection -->
+            <section class="class-selection">
+                <div class="class-tabs" id="classTabs">
+                    <!-- Class tabs will be generated dynamically -->
+                </div>
+            </section>
+
+            <!-- Perk Tree -->
+            <section class="perk-tree" id="perkTree">
+                <div class="sections">
+                    <!-- Core and Team sections will be generated dynamically -->
+                </div>
+            </section>
+
+            <!-- Prestige Perks -->
+            <section class="prestige-perks" id="prestigePerks">
+                <h2 class="prestige-title">Prestige Perks</h2>
+                <p class="prestige-subtitle">Select up to 8 prestige perks (I-VIII)</p>
+                <div class="prestige-grid" id="prestigeGrid">
+                    <!-- Prestige perks will be generated dynamically -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Tooltip -->
+        <div id="tooltip" class="tooltip">
+            <div class="tooltip-content">
+                <h3 class="tooltip-title"></h3>
+                <p class="tooltip-description"></p>
+            </div>
+        </div>
+
+        <!-- Share Modal -->
+        <div id="shareModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Share Your Build</h3>
+                    <button class="modal-close" id="modalClose">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Copy this URL to share your build:</p>
+                    <div class="url-container">
+                        <input type="text" id="shareUrl" readonly>
+                        <button id="copyUrlBtn" class="btn btn-primary">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Issue Modal -->
+        <div id="reportIssueModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Report an Issue</h3>
+                    <button class="modal-close" id="reportModalClose">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="reportIssueForm">
+                        <div class="form-group">
+                            <label for="issueDescription">Issue Description *</label>
+                            <textarea id="issueDescription" name="issueDescription" required 
+                                placeholder="Please describe the issue you encountered..." rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactName">Contact Name (Optional)</label>
+                            <input type="text" id="contactName" name="contactName" 
+                                placeholder="Your name or username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactPlatform">Contact Platform (Optional)</label>
+                            <input type="text" id="contactPlatform" name="contactPlatform" 
+                                placeholder="Discord, Email, etc.">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelReportBtn">Cancel</button>
+                            <button type="submit" class="btn btn-primary" id="submitReportBtn">Submit Report</button>
+                        </div>
+                    </form>
+                    
+                    <div id="reportStatus" class="report-status" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

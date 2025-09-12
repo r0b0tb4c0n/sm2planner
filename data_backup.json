@@ -1,0 +1,1090 @@
+{
+  "classes": [
+    {
+      "id": "assault",
+      "name": "Assault",
+      "sections": [
+        {
+          "id": "core",
+          "name": "Core",
+          "columns": [
+            {
+              "id": "core-col-1",
+              "name": "Column 1",
+              "perks": [
+                {
+                  "id": "jump-pack-mastery",
+                  "name": "Jump Pack Mastery",
+                  "desc": "Increases jump pack fuel capacity and regeneration rate.",
+                  "img": "jump-pack-mastery.png"
+                },
+                {
+                  "id": "aerial-superiority",
+                  "name": "Aerial Superiority",
+                  "desc": "Gain damage reduction while airborne.",
+                  "img": "aerial-superiority.png"
+                },
+                {
+                  "id": "shock-assault",
+                  "name": "Shock Assault",
+                  "desc": "Ground slam creates an electrical shockwave.",
+                  "img": "shock-assault.png"
+                },
+                {
+                  "id": "berserker-rage",
+                  "name": "Berserker Rage",
+                  "desc": "Low health increases attack speed dramatically.",
+                  "img": "berserker-rage.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-2",
+              "name": "Column 2",
+              "perks": [
+                {
+                  "id": "thunder-hammer-expertise",
+                  "name": "Thunder Hammer Expertise",
+                  "desc": "Increases thunder hammer damage and stagger potential.",
+                  "img": "thunder-hammer-expertise.png"
+                },
+                {
+                  "id": "chainsword-mastery",
+                  "name": "Chainsword Mastery",
+                  "desc": "Improves chainsword attack speed and critical hit chance.",
+                  "img": "chainsword-mastery.png"
+                },
+                {
+                  "id": "power-fist-training",
+                  "name": "Power Fist Training",
+                  "desc": "Improved power fist damage and combo potential.",
+                  "img": "power-fist-training.png"
+                },
+                {
+                  "id": "combat-expertise",
+                  "name": "Combat Expertise",
+                  "desc": "Enhanced melee combat effectiveness.",
+                  "img": "combat-expertise.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "columns": [
+            {
+              "id": "team-col-1",
+              "name": "Support",
+              "perks": [
+                {
+                  "id": "rally-cry",
+                  "name": "Rally Cry",
+                  "desc": "Nearby allies gain temporary damage boost after your kills.",
+                  "img": "rally-cry.png"
+                },
+                {
+                  "id": "protective-aura",
+                  "name": "Protective Aura",
+                  "desc": "Allies near you take reduced damage.",
+                  "img": "protective-aura.png"
+                },
+                {
+                  "id": "battle-cry",
+                  "name": "Battle Cry",
+                  "desc": "Your war cries inspire nearby allies.",
+                  "img": "battle-cry.png"
+                },
+                {
+                  "id": "guardian-spirit",
+                  "name": "Guardian Spirit",
+                  "desc": "Protect allies with enhanced defensive abilities.",
+                  "img": "guardian-spirit.png"
+                }
+              ]
+            },
+            {
+              "id": "team-col-2",
+              "name": "Coordination",
+              "perks": [
+                {
+                  "id": "pack-leader",
+                  "name": "Pack Leader",
+                  "desc": "Your melee kills restore stamina to nearby allies.",
+                  "img": "pack-leader.png"
+                },
+                {
+                  "id": "shared-fury",
+                  "name": "Shared Fury",
+                  "desc": "Critical hits grant fury to all team members.",
+                  "img": "shared-fury.png"
+                },
+                {
+                  "id": "tactical-coordination",
+                  "name": "Tactical Coordination",
+                  "desc": "Improved team coordination and communication.",
+                  "img": "tactical-coordination.png"
+                },
+                {
+                  "id": "squad-synergy",
+                  "name": "Squad Synergy",
+                  "desc": "Enhanced effectiveness when fighting alongside allies.",
+                  "img": "squad-synergy.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gear",
+          "name": "Gear",
+          "columns": [
+            {
+              "id": "gear-col-1",
+              "name": "Equipment",
+              "perks": [
+                {
+                  "id": "gear-1",
+                  "name": "Gear Option 1",
+                  "desc": "Equipment enhancement option 1.",
+                  "img": "gear-1.png"
+                },
+                {
+                  "id": "gear-2",
+                  "name": "Gear Option 2",
+                  "desc": "Equipment enhancement option 2.",
+                  "img": "gear-2.png"
+                },
+                {
+                  "id": "gear-3",
+                  "name": "Gear Option 3",
+                  "desc": "Equipment enhancement option 3.",
+                  "img": "gear-3.png"
+                },
+                {
+                  "id": "gear-4",
+                  "name": "Gear Option 4",
+                  "desc": "Equipment enhancement option 4.",
+                  "img": "gear-4.png"
+                }
+              ]
+            },
+            {
+              "id": "gear-col-2",
+              "name": "Equipment",
+              "perks": [
+                {
+                  "id": "gear-5",
+                  "name": "Gear Option 5",
+                  "desc": "Equipment enhancement option 5.",
+                  "img": "gear-5.png"
+                },
+                {
+                  "id": "gear-6",
+                  "name": "Gear Option 6",
+                  "desc": "Equipment enhancement option 6.",
+                  "img": "gear-6.png"
+                },
+                {
+                  "id": "gear-7",
+                  "name": "Gear Option 7",
+                  "desc": "Equipment enhancement option 7.",
+                  "img": "gear-7.png"
+                },
+                {
+                  "id": "gear-8",
+                  "name": "Gear Option 8",
+                  "desc": "Equipment enhancement option 8.",
+                  "img": "gear-8.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "signature",
+          "name": "Signature",
+          "columns": [
+            {
+              "id": "signature-col-1",
+              "name": "Ability",
+              "perks": [
+                {
+                  "id": "signature-1",
+                  "name": "Signature Ability 1",
+                  "desc": "Special signature ability 1.",
+                  "img": "signature-1.png"
+                },
+                {
+                  "id": "signature-2",
+                  "name": "Signature Ability 2",
+                  "desc": "Special signature ability 2.",
+                  "img": "signature-2.png"
+                },
+                {
+                  "id": "signature-3",
+                  "name": "Signature Ability 3",
+                  "desc": "Special signature ability 3.",
+                  "img": "signature-3.png"
+                },
+                {
+                  "id": "signature-4",
+                  "name": "Signature Ability 4",
+                  "desc": "Special signature ability 4.",
+                  "img": "signature-4.png"
+                }
+              ]
+            },
+            {
+              "id": "signature-col-2",
+              "name": "Ability",
+              "perks": [
+                {
+                  "id": "signature-5",
+                  "name": "Signature Ability 5",
+                  "desc": "Special signature ability 5.",
+                  "img": "signature-5.png"
+                },
+                {
+                  "id": "signature-6",
+                  "name": "Signature Ability 6",
+                  "desc": "Special signature ability 6.",
+                  "img": "signature-6.png"
+                },
+                {
+                  "id": "signature-7",
+                  "name": "Signature Ability 7",
+                  "desc": "Special signature ability 7.",
+                  "img": "signature-7.png"
+                },
+                {
+                  "id": "signature-8",
+                  "name": "Signature Ability 8",
+                  "desc": "Special signature ability 8.",
+                  "img": "signature-8.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "prestige": [
+        {
+          "id": "prestige-assault-1",
+          "name": "I",
+          "desc": "Mastery Perk I - Enhanced combat effectiveness.",
+          "img": "mastery-1.png"
+        },
+        {
+          "id": "prestige-assault-2",
+          "name": "II",
+          "desc": "Mastery Perk II - Improved tactical awareness.",
+          "img": "mastery-2.png"
+        },
+        {
+          "id": "prestige-assault-3",
+          "name": "III",
+          "desc": "Mastery Perk III - Advanced combat techniques.",
+          "img": "mastery-3.png"
+        },
+        {
+          "id": "prestige-assault-4",
+          "name": "IV",
+          "desc": "Mastery Perk IV - Elite warrior abilities.",
+          "img": "mastery-4.png"
+        }
+      ]
+    },
+    {
+      "id": "bulwark",
+      "name": "Bulwark",
+      "sections": [
+        {
+          "id": "core",
+          "name": "Core",
+          "columns": [
+            {
+              "id": "core-col-1",
+              "name": "Column 1",
+              "perks": [
+                {
+                  "id": "shield-mastery",
+                  "name": "Shield Mastery",
+                  "desc": "Increases shield durability and regeneration speed.",
+                  "img": "shield-mastery.png"
+                },
+                {
+                  "id": "fortress-stance",
+                  "name": "Fortress Stance",
+                  "desc": "Blocking grants damage reduction to nearby allies.",
+                  "img": "fortress-stance.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-2",
+              "name": "Column 2",
+              "perks": [
+                {
+                  "id": "power-sword-expertise",
+                  "name": "Power Sword Expertise",
+                  "desc": "Power sword attacks have increased armor penetration.",
+                  "img": "power-sword-expertise.png"
+                },
+                {
+                  "id": "shield-bash-mastery",
+                  "name": "Shield Bash Mastery",
+                  "desc": "Shield bashes stun enemies for longer duration.",
+                  "img": "shield-bash-mastery.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-3",
+              "name": "Column 3",
+              "perks": [
+                {
+                  "id": "banner-bearer",
+                  "name": "Banner Bearer",
+                  "desc": "Chapter banner provides area-wide buffs to allies.",
+                  "img": "banner-bearer.png"
+                },
+                {
+                  "id": "stalwart-defender",
+                  "name": "Stalwart Defender",
+                  "desc": "Taking damage while blocking builds up a damage bonus.",
+                  "img": "stalwart-defender.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "columns": [
+            {
+              "id": "team-col-1",
+              "name": "Protection",
+              "perks": [
+                {
+                  "id": "aegis-protocol",
+                  "name": "Aegis Protocol",
+                  "desc": "Allies behind your shield take no damage from ranged attacks.",
+                  "img": "aegis-protocol.png"
+                },
+                {
+                  "id": "guardian-aura",
+                  "name": "Guardian Aura",
+                  "desc": "Nearby allies gain increased health regeneration.",
+                  "img": "guardian-aura.png"
+                }
+              ]
+            },
+            {
+              "id": "team-col-2",
+              "name": "Leadership",
+              "perks": [
+                {
+                  "id": "inspiring-presence",
+                  "name": "Inspiring Presence",
+                  "desc": "Your defensive actions inspire allies, reducing their cooldowns.",
+                  "img": "inspiring-presence.png"
+                },
+                {
+                  "id": "tactical-advance",
+                  "name": "Tactical Advance",
+                  "desc": "Team gains movement speed when following behind you.",
+                  "img": "tactical-advance.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "prestige": [
+        {
+          "id": "prestige-bulwark-1",
+          "name": "Immovable Object",
+          "desc": "Cannot be knocked down or moved while blocking.",
+          "img": "immovable-object.png"
+        },
+        {
+          "id": "prestige-bulwark-2",
+          "name": "Retribution",
+          "desc": "Blocking attacks charges up a powerful counterattack.",
+          "img": "retribution.png"
+        },
+        {
+          "id": "prestige-bulwark-3",
+          "name": "Shield Wall",
+          "desc": "Multiple Bulwarks can link shields for enhanced protection.",
+          "img": "shield-wall.png"
+        },
+        {
+          "id": "prestige-bulwark-4",
+          "name": "Fortress of Will",
+          "desc": "Low health grants massive damage resistance.",
+          "img": "fortress-of-will.png"
+        },
+        {
+          "id": "prestige-bulwark-5",
+          "name": "Righteous Fury",
+          "desc": "Ally deaths near you grant temporary invincibility.",
+          "img": "righteous-fury.png"
+        },
+        {
+          "id": "prestige-bulwark-6",
+          "name": "Chapter's Pride",
+          "desc": "Banner effects persist even after banner is destroyed.",
+          "img": "chapter-pride.png"
+        },
+        {
+          "id": "prestige-bulwark-7",
+          "name": "Stalwart Advance",
+          "desc": "Can move at full speed while blocking.",
+          "img": "stalwart-advance.png"
+        },
+        {
+          "id": "prestige-bulwark-8",
+          "name": "Divine Protection",
+          "desc": "Shield regenerates faster when protecting allies.",
+          "img": "divine-protection.png"
+        }
+      ]
+    },
+    {
+      "id": "tactical",
+      "name": "Tactical",
+      "sections": [
+        {
+          "id": "core",
+          "name": "Core",
+          "columns": [
+            {
+              "id": "core-col-1",
+              "name": "Column 1",
+              "perks": [
+                {
+                  "id": "bolter-discipline",
+                  "name": "Bolter Discipline",
+                  "desc": "Improved accuracy and reduced recoil with bolter weapons.",
+                  "img": "bolter-discipline.png"
+                },
+                {
+                  "id": "marksman-training",
+                  "name": "Marksman Training",
+                  "desc": "Headshots deal significantly increased damage.",
+                  "img": "marksman-training.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-2",
+              "name": "Column 2",
+              "perks": [
+                {
+                  "id": "grenade-expertise",
+                  "name": "Grenade Expertise",
+                  "desc": "Carry additional grenades and increased blast radius.",
+                  "img": "grenade-expertise.png"
+                },
+                {
+                  "id": "tactical-reload",
+                  "name": "Tactical Reload",
+                  "desc": "Faster reload speeds and reduced reload penalties.",
+                  "img": "tactical-reload.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-3",
+              "name": "Column 3",
+              "perks": [
+                {
+                  "id": "combat-stims",
+                  "name": "Combat Stims",
+                  "desc": "Medicae stims provide temporary combat bonuses.",
+                  "img": "combat-stims.png"
+                },
+                {
+                  "id": "battlefield-awareness",
+                  "name": "Battlefield Awareness",
+                  "desc": "Enhanced radar range and enemy detection.",
+                  "img": "battlefield-awareness.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "columns": [
+            {
+              "id": "team-col-1",
+              "name": "Support",
+              "perks": [
+                {
+                  "id": "field-medic",
+                  "name": "Field Medic",
+                  "desc": "Revive allies faster and they return with more health.",
+                  "img": "field-medic.png"
+                },
+                {
+                  "id": "ammunition-supply",
+                  "name": "Ammunition Supply",
+                  "desc": "Allies near you regenerate ammunition over time.",
+                  "img": "ammunition-supply.png"
+                }
+              ]
+            },
+            {
+              "id": "team-col-2",
+              "name": "Coordination",
+              "perks": [
+                {
+                  "id": "squad-leader",
+                  "name": "Squad Leader",
+                  "desc": "Your kills reduce ability cooldowns for all team members.",
+                  "img": "squad-leader.png"
+                },
+                {
+                  "id": "covering-fire",
+                  "name": "Covering Fire",
+                  "desc": "Suppressing enemies grants damage bonus to allies.",
+                  "img": "covering-fire.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "prestige": [
+        {
+          "id": "prestige-tactical-1",
+          "name": "Precision Strike",
+          "desc": "Perfect accuracy shots ignore armor completely.",
+          "img": "precision-strike.png"
+        },
+        {
+          "id": "prestige-tactical-2",
+          "name": "Explosive Ordinance",
+          "desc": "Grenades have a chance to spawn additional explosions.",
+          "img": "explosive-ordinance.png"
+        },
+        {
+          "id": "prestige-tactical-3",
+          "name": "Combat Medic",
+          "desc": "Can revive allies at range with medicae darts.",
+          "img": "combat-medic.png"
+        },
+        {
+          "id": "prestige-tactical-4",
+          "name": "Suppression Master",
+          "desc": "Suppressed enemies take damage over time.",
+          "img": "suppression-master.png"
+        },
+        {
+          "id": "prestige-tactical-5",
+          "name": "Adaptive Tactics",
+          "desc": "Gain different bonuses based on current weapon type.",
+          "img": "adaptive-tactics.png"
+        },
+        {
+          "id": "prestige-tactical-6",
+          "name": "Overwatch",
+          "desc": "Standing still increases damage and accuracy over time.",
+          "img": "overwatch.png"
+        },
+        {
+          "id": "prestige-tactical-7",
+          "name": "Field Commander",
+          "desc": "Can mark targets for the entire team to focus fire.",
+          "img": "field-commander.png"
+        },
+        {
+          "id": "prestige-tactical-8",
+          "name": "Emergency Protocol",
+          "desc": "Low team health activates powerful team-wide buffs.",
+          "img": "emergency-protocol.png"
+        }
+      ]
+    },
+    {
+      "id": "devastator",
+      "name": "Devastator",
+      "sections": [
+        {
+          "id": "core",
+          "name": "Core",
+          "columns": [
+            {
+              "id": "core-col-1",
+              "name": "Column 1",
+              "perks": [
+                {
+                  "id": "heavy-weapons-training",
+                  "name": "Heavy Weapons Training",
+                  "desc": "Reduced recoil and faster handling of heavy weapons.",
+                  "img": "heavy-weapons-training.png"
+                },
+                {
+                  "id": "siege-specialist",
+                  "name": "Siege Specialist",
+                  "desc": "Increased damage against armored and large enemies.",
+                  "img": "siege-specialist.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-2",
+              "name": "Column 2",
+              "perks": [
+                {
+                  "id": "plasma-mastery",
+                  "name": "Plasma Mastery",
+                  "desc": "Plasma weapons charge faster and overheat less.",
+                  "img": "plasma-mastery.png"
+                },
+                {
+                  "id": "multi-melta-expertise",
+                  "name": "Multi-Melta Expertise",
+                  "desc": "Multi-melta has increased range and penetration.",
+                  "img": "multi-melta-expertise.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-3",
+              "name": "Column 3",
+              "perks": [
+                {
+                  "id": "iron-halo",
+                  "name": "Iron Halo",
+                  "desc": "Deployable shield generator provides area protection.",
+                  "img": "iron-halo.png"
+                },
+                {
+                  "id": "sustained-fire",
+                  "name": "Sustained Fire",
+                  "desc": "Continuous firing increases damage and accuracy.",
+                  "img": "sustained-fire.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "columns": [
+            {
+              "id": "team-col-1",
+              "name": "Fire Support",
+              "perks": [
+                {
+                  "id": "suppressing-fire",
+                  "name": "Suppressing Fire",
+                  "desc": "Heavy weapons suppress large areas, slowing enemies.",
+                  "img": "suppressing-fire.png"
+                },
+                {
+                  "id": "overwatch-support",
+                  "name": "Overwatch Support",
+                  "desc": "Provides covering fire that protects advancing allies.",
+                  "img": "overwatch-support.png"
+                }
+              ]
+            },
+            {
+              "id": "team-col-2",
+              "name": "Area Denial",
+              "perks": [
+                {
+                  "id": "defensive-position",
+                  "name": "Defensive Position",
+                  "desc": "Creates fortified positions that boost team defense.",
+                  "img": "defensive-position.png"
+                },
+                {
+                  "id": "artillery-strike",
+                  "name": "Artillery Strike",
+                  "desc": "Can call in devastating orbital bombardments.",
+                  "img": "artillery-strike.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "prestige": [
+        {
+          "id": "prestige-devastator-1",
+          "name": "Walking Fortress",
+          "desc": "Movement speed is unaffected by heavy weapon penalties.",
+          "img": "walking-fortress.png"
+        },
+        {
+          "id": "prestige-devastator-2",
+          "name": "Plasma Storm",
+          "desc": "Overcharged plasma weapons create area damage.",
+          "img": "plasma-storm.png"
+        },
+        {
+          "id": "prestige-devastator-3",
+          "name": "Bunker Buster",
+          "desc": "Heavy weapons can destroy cover and fortifications.",
+          "img": "bunker-buster.png"
+        },
+        {
+          "id": "prestige-devastator-4",
+          "name": "Endless Ammunition",
+          "desc": "Sustained fire gradually increases magazine capacity.",
+          "img": "endless-ammunition.png"
+        },
+        {
+          "id": "prestige-devastator-5",
+          "name": "Orbital Support",
+          "desc": "Reduced cooldown on all bombardment abilities.",
+          "img": "orbital-support.png"
+        },
+        {
+          "id": "prestige-devastator-6",
+          "name": "Armor Piercing",
+          "desc": "All weapons gain increased armor penetration.",
+          "img": "armor-piercing.png"
+        },
+        {
+          "id": "prestige-devastator-7",
+          "name": "Suppression Zone",
+          "desc": "Creates persistent areas that slow and damage enemies.",
+          "img": "suppression-zone.png"
+        },
+        {
+          "id": "prestige-devastator-8",
+          "name": "Maximum Firepower",
+          "desc": "Can fire all weapons simultaneously for short bursts.",
+          "img": "maximum-firepower.png"
+        }
+      ]
+    },
+    {
+      "id": "sniper",
+      "name": "Sniper",
+      "sections": [
+        {
+          "id": "core",
+          "name": "Core",
+          "columns": [
+            {
+              "id": "core-col-1",
+              "name": "Column 1",
+              "perks": [
+                {
+                  "id": "long-range-mastery",
+                  "name": "Long Range Mastery",
+                  "desc": "Increased damage and accuracy at long distances.",
+                  "img": "long-range-mastery.png"
+                },
+                {
+                  "id": "stealth-training",
+                  "name": "Stealth Training",
+                  "desc": "Enhanced camo cloak duration and effectiveness.",
+                  "img": "stealth-training.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-2",
+              "name": "Column 2",
+              "perks": [
+                {
+                  "id": "precision-targeting",
+                  "name": "Precision Targeting",
+                  "desc": "Can target specific enemy weak points for massive damage.",
+                  "img": "precision-targeting.png"
+                },
+                {
+                  "id": "explosive-rounds",
+                  "name": "Explosive Rounds",
+                  "desc": "Sniper rounds create small explosions on impact.",
+                  "img": "explosive-rounds.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-3",
+              "name": "Column 3",
+              "perks": [
+                {
+                  "id": "infiltrator",
+                  "name": "Infiltrator",
+                  "desc": "Can move through enemy lines undetected.",
+                  "img": "infiltrator.png"
+                },
+                {
+                  "id": "overwatch-specialist",
+                  "name": "Overwatch Specialist",
+                  "desc": "Stationary position grants increasing damage bonuses.",
+                  "img": "overwatch-specialist.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "columns": [
+            {
+              "id": "team-col-1",
+              "name": "Intelligence",
+              "perks": [
+                {
+                  "id": "scout-network",
+                  "name": "Scout Network",
+                  "desc": "Reveals enemy positions to the entire team.",
+                  "img": "scout-network.png"
+                },
+                {
+                  "id": "target-designation",
+                  "name": "Target Designation",
+                  "desc": "Marked enemies take increased damage from all sources.",
+                  "img": "target-designation.png"
+                }
+              ]
+            },
+            {
+              "id": "team-col-2",
+              "name": "Support",
+              "perks": [
+                {
+                  "id": "guardian-angel",
+                  "name": "Guardian Angel",
+                  "desc": "Can eliminate threats targeting distant allies.",
+                  "img": "guardian-angel.png"
+                },
+                {
+                  "id": "battlefield-control",
+                  "name": "Battlefield Control",
+                  "desc": "Sniper shots can pin down multiple enemies.",
+                  "img": "battlefield-control.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "prestige": [
+        {
+          "id": "prestige-sniper-1",
+          "name": "One Shot, One Kill",
+          "desc": "Perfect headshots instantly kill most enemies.",
+          "img": "one-shot-one-kill.png"
+        },
+        {
+          "id": "prestige-sniper-2",
+          "name": "Ghost Walker",
+          "desc": "Movement doesn't break camo cloak.",
+          "img": "ghost-walker.png"
+        },
+        {
+          "id": "prestige-sniper-3",
+          "name": "Penetrating Shot",
+          "desc": "Sniper rounds can hit multiple enemies in a line.",
+          "img": "penetrating-shot.png"
+        },
+        {
+          "id": "prestige-sniper-4",
+          "name": "Eagle Eye",
+          "desc": "Can see and target enemies through walls.",
+          "img": "eagle-eye.png"
+        },
+        {
+          "id": "prestige-sniper-5",
+          "name": "Phantom Protocol",
+          "desc": "Killing enemies while cloaked extends cloak duration.",
+          "img": "phantom-protocol.png"
+        },
+        {
+          "id": "prestige-sniper-6",
+          "name": "Spotter Network",
+          "desc": "Team members can call in precision strikes.",
+          "img": "spotter-network.png"
+        },
+        {
+          "id": "prestige-sniper-7",
+          "name": "Rapid Deployment",
+          "desc": "Can quickly relocate between vantage points.",
+          "img": "rapid-deployment.png"
+        },
+        {
+          "id": "prestige-sniper-8",
+          "name": "Master Marksman",
+          "desc": "No bullet drop or travel time on sniper shots.",
+          "img": "master-marksman.png"
+        }
+      ]
+    },
+    {
+      "id": "vanguard",
+      "name": "Vanguard",
+      "sections": [
+        {
+          "id": "core",
+          "name": "Core",
+          "columns": [
+            {
+              "id": "core-col-1",
+              "name": "Column 1",
+              "perks": [
+                {
+                  "id": "grapple-mastery",
+                  "name": "Grapple Mastery",
+                  "desc": "Increased grapple range and faster deployment.",
+                  "img": "grapple-mastery.png"
+                },
+                {
+                  "id": "shock-tactics",
+                  "name": "Shock Tactics",
+                  "desc": "Surprise attacks from grappling deal bonus damage.",
+                  "img": "shock-tactics.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-2",
+              "name": "Column 2",
+              "perks": [
+                {
+                  "id": "instigator-carbine",
+                  "name": "Instigator Carbine",
+                  "desc": "Improved accuracy and damage with carbine weapons.",
+                  "img": "instigator-carbine.png"
+                },
+                {
+                  "id": "combat-knife-expertise",
+                  "name": "Combat Knife Expertise",
+                  "desc": "Faster melee attacks and increased critical chance.",
+                  "img": "combat-knife-expertise.png"
+                }
+              ]
+            },
+            {
+              "id": "core-col-3",
+              "name": "Column 3",
+              "perks": [
+                {
+                  "id": "melta-bomb-specialist",
+                  "name": "Melta Bomb Specialist",
+                  "desc": "Carry more melta bombs with increased blast radius.",
+                  "img": "melta-bomb-specialist.png"
+                },
+                {
+                  "id": "hit-and-run",
+                  "name": "Hit and Run",
+                  "desc": "Increased movement speed after successful attacks.",
+                  "img": "hit-and-run.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "team",
+          "name": "Team",
+          "columns": [
+            {
+              "id": "team-col-1",
+              "name": "Disruption",
+              "perks": [
+                {
+                  "id": "enemy-harassment",
+                  "name": "Enemy Harassment",
+                  "desc": "Your attacks reduce enemy accuracy and movement.",
+                  "img": "enemy-harassment.png"
+                },
+                {
+                  "id": "sabotage-specialist",
+                  "name": "Sabotage Specialist",
+                  "desc": "Can disable enemy equipment and weapons.",
+                  "img": "sabotage-specialist.png"
+                }
+              ]
+            },
+            {
+              "id": "team-col-2",
+              "name": "Mobility",
+              "perks": [
+                {
+                  "id": "pathfinder",
+                  "name": "Pathfinder",
+                  "desc": "Creates routes for allies to follow safely.",
+                  "img": "pathfinder.png"
+                },
+                {
+                  "id": "rapid-extraction",
+                  "name": "Rapid Extraction",
+                  "desc": "Can quickly rescue downed allies with grapple.",
+                  "img": "rapid-extraction.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "prestige": [
+        {
+          "id": "prestige-vanguard-1",
+          "name": "Spider's Web",
+          "desc": "Can deploy multiple grapple points simultaneously.",
+          "img": "spider-web.png"
+        },
+        {
+          "id": "prestige-vanguard-2",
+          "name": "Demolition Expert",
+          "desc": "Explosives have dramatically increased damage radius.",
+          "img": "demolition-expert.png"
+        },
+        {
+          "id": "prestige-vanguard-3",
+          "name": "Shadow Strike",
+          "desc": "Grapple attacks from above deal critical damage.",
+          "img": "shadow-strike.png"
+        },
+        {
+          "id": "prestige-vanguard-4",
+          "name": "Guerrilla Warfare",
+          "desc": "Killing enemies while alone grants significant bonuses.",
+          "img": "guerrilla-warfare.png"
+        },
+        {
+          "id": "prestige-vanguard-5",
+          "name": "Escape Artist",
+          "desc": "Can break free from any crowd control effect.",
+          "img": "escape-artist.png"
+        },
+        {
+          "id": "prestige-vanguard-6",
+          "name": "Behind Enemy Lines",
+          "desc": "Gain damage bonus when surrounded by enemies.",
+          "img": "behind-enemy-lines.png"
+        },
+        {
+          "id": "prestige-vanguard-7",
+          "name": "Tactical Insertion",
+          "desc": "Can deploy spawn beacons for team reinforcement.",
+          "img": "tactical-insertion.png"
+        },
+        {
+          "id": "prestige-vanguard-8",
+          "name": "Master Infiltrator",
+          "desc": "All stealth abilities have reduced cooldowns.",
+          "img": "master-infiltrator.png"
+        }
+      ]
+    }
+  ]
+} 

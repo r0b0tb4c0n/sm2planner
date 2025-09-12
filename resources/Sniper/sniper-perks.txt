@@ -1,0 +1,25 @@
+== Sniper ==
+L02 | Block Break | Shots will penetrate enemy Block Stances, dealing 50% of the usual Damage
+L03 | High Capacity | The maximum amount of Ammo you can carry increases by 10%
+L04 | Iron Grip | Weapon Spread and Recoil are reduced by 20% and Ranged Damage against Terminus-level enemies is increased by 15% for Bolt Sniper Rifles and Stalker Bolt Rifles
+L05 | Marksmanship | Headshot Damage increases by 10% for all Squad Members
+L06 | Purification | Manually activating Camo Cloak removes negative Status Effects and restores all Contested Health
+L07 | Guardian Protocol | When you are reviving a Squad Member, Camo Cloak hides you and the Squad Member for 5 seconds without spending Charge. Cooldown is 30 seconds.
+L08 | Persistence | When Camo Cloak deactivates, you take 20% less Health Damage, do not lose control upon taking Heavy Hits, and cannot be knocked back for 10 seconds
+L09 | Evasion | After a perfectly timed Dodge, Camo Cloak automatically activates without spending Charge for 5 seconds. Cooldown is 30 seconds.
+L10 | Melee Mastery | Melee Damage increases by 20% against Majoris-level and higher enemies
+L11 | Vantage Point | Remaining stationary for 2 seconds increases your Ranged Weapons' Damage by 20%
+L12 | Dexterous Hands | Bolt Carbines reload 20% faster, and their Weapon Spread and Recoil are reduced by 15%
+L13 | Precision Targeting | Weapon Spread is reduced by 25% and Ranged Damage against Extremis-level enemies is increased by 15% for all Squad Members
+L14 | Efficient Readiness | Camo Cloak increases movement speed by 20%, and manually activating Camo Cloak automatically reloads Ranged Weapons
+L15 | Targeted Shot | The first Ranged Attack that breaks Camo Cloak deals 75% more Damage
+L16 | Lingering Concealment | After performing an attack that breaks Camo Cloak, you remain hidden for 2 seconds
+L17 | Emergency Override | When you receive Lethal Damage, Camo Cloak automatically activates without spending Charge and you become Invulnerable for 5 seconds. Cooldown is 180 seconds.
+L18 | Medicae Adept | You revive Squad members 30% faster
+L19 | Adaptability | Reloading while having Low Ammo or manually activating Camo Cloak increases Melee Damage by 25% for 10 seconds
+L20 | Lethal Efficiency | Killing more than 1 enemy with one shot from a Las Fusil restores its charge by 1
+L21 | Squad Renewal | A Headshot kill restores Ability Charge by 10% for any Squad Member
+L22 | Renewal | A Headshot kill restores Camo Cloak's Charge by 5%
+L23 | Tactical Ambush | The first Melee Attack that breaks Camo Cloak deals 150% more Damage
+L24 | Ambush | When Camo Cloak deactivates, it startles nearby enemies. They will temporarily lose control or get knocked back. Cooldown is 25 seconds.
+L25 | Pattern of Excellence | Performing 3 consecutive Headshots restores Equipment Charge by 1. Cooldown is 30 seconds.

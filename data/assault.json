@@ -1,0 +1,267 @@
+{
+  "id": "assault",
+  "name": "Assault",
+  "icon": "resources/Assault/assaultclassicon.webp",
+  "sections": [
+    {
+      "id": "core",
+      "name": "CORE",
+      "columns": [
+        {
+          "id": "core-col-1",
+          "name": "COMBAT",
+          "perks": [
+            {
+              "id": "assault-02",
+              "name": "Winged Fury",
+              "desc": "Damage from Melee Attacks executed while sprinting or dashing increases by 100%. Deals area-of-effect Damage within a 7-metre radius. Cooldown is 5 seconds.",
+              "img": "resources/Assault/assault02.webp"
+            },
+            {
+              "id": "assault-10",
+              "name": "Overcharge",
+              "desc": "Damage of Charged Attacks increases by 25%",
+              "img": "resources/Assault/assault10.webp"
+            },
+            {
+              "id": "assault-18",
+              "name": "Armour Reinforcement",
+              "desc": "Non-Finisher Gun Strikes also restore 1 Armour Segment",
+              "img": "resources/Assault/assault18.webp"
+            }
+          ]
+        },
+        {
+          "id": "core-col-2",
+          "name": "TACTICS",
+          "perks": [
+            {
+              "id": "assault-03",
+              "name": "Auxiliary Arsenal",
+              "desc": "Secondary Weapon's Damage increases by 20%",
+              "img": "resources/Assault/assault03.webp"
+            },
+            {
+              "id": "assault-11",
+              "name": "Defense Mechanism",
+              "desc": "Contested Health fades 50% more slowly",
+              "img": "resources/Assault/assault11.webp"
+            },
+            {
+              "id": "assault-19",
+              "name": "Consecutive Execution",
+              "desc": "Killing 7 enemies within 6 seconds restores Equipment Charge by 1. Cooldown is 90 seconds.",
+              "img": "resources/Assault/assault19.webp"
+            }
+          ]
+        },
+        {
+          "id": "core-col-3",
+          "name": "MASTERY",
+          "perks": [
+            {
+              "id": "assault-04",
+              "name": "Perseverance",
+              "desc": "While performing Charged Attacks, you take 25% less Health Damage do not lose control upon taking Heavy Hits and you cannot be knocked back",
+              "img": "resources/Assault/assault04.webp"
+            },
+            {
+              "id": "assault-12",
+              "name": "Knowledge of the Enemy",
+              "desc": "Melee Damage increases by 15% against Majoris- or Extremis-level enemies",
+              "img": "resources/Assault/assault12.webp"
+            },
+            {
+              "id": "assault-20",
+              "name": "Act of Attrition",
+              "desc": "Enemies hit by Melee Attacks take 15% more Damage for 3 seconds",
+              "img": "resources/Assault/assault20.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "team",
+      "name": "TEAM",
+      "columns": [
+        {
+          "id": "team-col-1",
+          "name": "SQUAD",
+          "perks": [
+            {
+              "id": "assault-05",
+              "name": "Squad Cohesion",
+              "desc": "All Squad Members' Abilities recharge 10% faster",
+              "img": "resources/Assault/assault05.webp"
+            },
+            {
+              "id": "assault-13",
+              "name": "Strategic Strikes",
+              "desc": "All Squad Members deal 20% more Melee Damage against Extremis- and Terminus-level enemies",
+              "img": "resources/Assault/assault13.webp"
+            },
+            {
+              "id": "assault-21",
+              "name": "Proven Efficiency",
+              "desc": "All Squad Members deal 30% more Gun Strike Damage",
+              "img": "resources/Assault/assault21.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gear",
+      "name": "GEAR",
+      "columns": [
+        {
+          "id": "gear-col-1",
+          "name": "PRIMARY",
+          "perks": [
+            {
+              "id": "assault-06",
+              "name": "Smiting Angel",
+              "desc": "Ground Pound's Damage increases by 25%",
+              "img": "resources/Assault/assault06.webp"
+            },
+            {
+              "id": "assault-14",
+              "name": "Hammer of Wrath",
+              "desc": "After use Jump Pack, you take 30% less Ranged Damage, do not lose control upon taking Heavy Hits and you cannot be knocked back for 15 seconds",
+              "img": "resources/Assault/assault14.webp"
+            },
+            {
+              "id": "assault-22",
+              "name": "Precision Strike",
+              "desc": "Ground Pound deals 100% more Damage, but its radius is reduced by 50%",
+              "img": "resources/Assault/assault22.webp"
+            }
+          ]
+        },
+        {
+          "id": "gear-col-2",
+          "name": "SECONDARY",
+          "perks": [
+            {
+              "id": "assault-07",
+              "name": "Wings of Flame",
+              "desc": "Jump Pack Dash deals damage that scales with difficulty to enemies along its trajectory and always works as a Perfect Dodge when dodging an attack",
+              "img": "resources/Assault/assault07.webp"
+            },
+            {
+              "id": "assault-15",
+              "name": "Manoeuvrability",
+              "desc": "Jump Pack recharges 20% faster",
+              "img": "resources/Assault/assault15.webp"
+            },
+            {
+              "id": "assault-23",
+              "name": "Zealous Blow",
+              "desc": "A Ground Pound kill restores Jump Pack's Charge by 10%",
+              "img": "resources/Assault/assault23.webp"
+            }
+          ]
+        },
+        {
+          "id": "gear-col-3",
+          "name": "EQUIPMENT",
+          "perks": [
+            {
+              "id": "assault-08",
+              "name": "Pride in Duty",
+              "desc": "After a Finisher, Ground Pound deals 25% more Damage for 10 seconds",
+              "img": "resources/Assault/assault08.webp"
+            },
+            {
+              "id": "assault-16",
+              "name": "Diligence",
+              "desc": "A fully prepared Ground Pound deals 20% more Damage, but preparation time increases by 25%",
+              "img": "resources/Assault/assault16.webp"
+            },
+            {
+              "id": "assault-24",
+              "name": "Aerial Grace",
+              "desc": "After a perfectly timed Dodge using a Jump Pack Dash, you deal 30% more Damage for 10 seconds",
+              "img": "resources/Assault/assault24.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "name": "SIGNATURE",
+      "columns": [
+        {
+          "id": "signature-col-1",
+          "name": "ABILITY",
+          "perks": [
+            {
+              "id": "assault-09",
+              "name": "Ample Ammunition",
+              "desc": "Any use of Jump Pack reloads the equipped Ranged weapon and increases Ranged Damage for by 50% for 10 seconds",
+              "img": "resources/Assault/assault09.webp"
+            },
+            {
+              "id": "assault-17",
+              "name": "Ascension",
+              "desc": "Jump Pack Leap deals Damage to enemies near the takeoff area. Enemies within 1-metre take Damage based on Difficulty Level. After 1-metre the Damage starts to drop-off and does 0 Damage at 5-metres. Can hit up to 20 enemies.",
+              "img": "resources/Assault/assault17.webp"
+            },
+            {
+              "id": "assault-25",
+              "name": "Commitment",
+              "desc": "A perfectly timed Dodge using a Jump Pack Dash restores Jump pack's Ability Charge",
+              "img": "resources/Assault/assault25.webp"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "prestige": [
+    {
+      "id": "prestige-assault-1",
+      "name": "Unyielding Oath",
+      "desc": "When charging a Ground Pound, you become Invulnerable for 3 seconds.",
+      "img": "I.png"
+    },
+    {
+      "id": "prestige-assault-2",
+      "name": "Adrenaline Boost",
+      "desc": "After a perfectly timed Parry, Block or Dodge, you do not lose control upon taking Heavy Hits, and you cannot be knocked back for 10 seconds",
+      "img": "II.png"
+    },
+    {
+      "id": "prestige-assault-3",
+      "name": "Duellist",
+      "desc": "Perfect Parry and Perfect Block windows increase by 25%",
+      "img": "III.png"
+    },
+    {
+      "id": "prestige-assault-4",
+      "name": "Fortitude",
+      "desc": "Health increase by 15%",
+      "img": "IV.png"
+    },
+    {
+      "id": "prestige-assault-5",
+      "name": "Scrambled Targeting",
+      "desc": "If you are surrounded by 5 or more enemies, you take 20% less Damage from Ranged Attacks",
+      "img": "V.png"
+    },
+    {
+      "id": "prestige-assault-6",
+      "name": "Practiced Aim",
+      "desc": "Ranged Damage increase by 15%",
+      "img": "VI.png"
+    },
+    {
+      "id": "prestige-assault-7",
+      "name": "Commendation",
+      "desc": "Revive a Squad Member fully restores Jump Pack's Charge and all Armour Segments",
+      "img": "VII.png"
+    }
+  ]
+} 
