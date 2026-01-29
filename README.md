@@ -1,6 +1,6 @@
 # Space Marine 2 Talent Calculator
 
-🚀 **Live Demo**: [https://sm2planner.flame6.com](https://sm2planner.flame6.com)
+🚀 **Live Demo**: [https://sm2.tacticalpineapple.net](https://sm2.tacticalpineapple.net)
 
 A web-based build planner for *Warhammer 40,000: Space Marine 2* that allows players to create, customize, and share talent builds via URL.
 
@@ -25,22 +25,29 @@ A web-based build planner for *Warhammer 40,000: Space Marine 2* that allows pla
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/SM2-Talent-Calculator.git
-   cd SM2-Talent-Calculator
+   git clone https://github.com/r0b0tb4c0n/sm2planner.git
    ```
 
-2. Install dependencies:
+2. (Optional) Set up environment variables for issue reporting:
    ```bash
-   npm install
-   ```
-
-3. (Optional) Set up environment variables for issue reporting:
-   ```bash
+   cd sm2planner/app
    cp .env.example .env
    # Edit .env and add your Discord webhook URL
    ```
 
+3. start the docker container
+   ```bash
+   cd sm2planner/docker
+   docker compose up -d
+   ```
+
 ### Development
+
+change the docker-compose.yml `command`:
+`command: "tail -f /dev/null"`
+
+enter the docker container:
+`docker exec -ti sm2planner sh`
 
 Start the development server:
 ```bash
@@ -49,19 +56,14 @@ npm run dev
 
 The application will be available at `http://localhost:3000`
 
-### Production Deployment with PM2
+### Interactive PM2 commands
 
-1. Install PM2 globally (if not already installed):
-   ```bash
-   npm install -g pm2
-   ```
-
-2. Start the application:
+1. Start the application:
    ```bash
    npm run pm2:start
    ```
 
-3. Other PM2 commands:
+2. Other PM2 commands:
    ```bash
    npm run pm2:stop     # Stop the application
    npm run pm2:restart  # Restart the application
