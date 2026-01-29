@@ -43,9 +43,11 @@ A web-based build planner for *Warhammer 40,000: Space Marine 2* that allows pla
 
 ### Development
 
-change the command directive in docker-compose.yml:
+change the command directive in docker-compose.yml and start the container:
 ```
 command: "tail -f /dev/null"`
+
+docker compose up -d
 ```
 
 enter the docker container:
@@ -58,7 +60,7 @@ Start the development server:
 npm run dev
 ```
 
-The application will be available at `http://localhost:3000`
+The application will run on port 3000 be available through the docker port forward on port 40000 (by default)
 
 ### Interactive PM2 commands
 
