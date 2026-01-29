@@ -9,5 +9,5 @@ services:
       - ../app:/home/node/app
     ports:
       - 40000:3000
-    command: "/home/node/scripts/setup.sh"
+    command: "/bin/sh /home/node/scripts/setup.sh"
     restart: unless-stopped
