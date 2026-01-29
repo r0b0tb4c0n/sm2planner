@@ -1,8 +1,8 @@
 ---
 services:
-  sm2:
+  sm2planner:
     image: node:24-alpine
-    container_name: sm2
+    container_name: sm2planner
     working_dir: /home/node/app
     volumes:
       - ../scripts:/home/node/scripts:ro
