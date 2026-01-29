@@ -43,11 +43,15 @@ A web-based build planner for *Warhammer 40,000: Space Marine 2* that allows pla
 
 ### Development
 
-change the docker-compose.yml `command`:
-`command: "tail -f /dev/null"`
+change the command directive in docker-compose.yml:
+```
+command: "tail -f /dev/null"`
+```
 
 enter the docker container:
-`docker exec -ti sm2planner sh`
+```bash
+docker exec -ti sm2planner sh
+```
 
 Start the development server:
 ```bash
