@@ -305,19 +305,26 @@ class BuildPlanner {
             tile.classList.add('disabled');
         }
 
-        // Icon (using text for Roman numerals)
+        // Icon (using image instead of Roman numerals)
         const icon = document.createElement('div');
         icon.className = 'prestige-icon';
 
-        // Convert perk index to Roman numeral for display
-        const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
-        icon.textContent = romanNumerals[perkIndex] || (perkIndex + 1).toString();
+        const img = document.createElement('img');
+        img.src = perk.img;
+        img.alt = perk.name;
+        img.onerror = () => {
+            // Fallback to Roman numeral if image fails to load
+            icon.innerHTML = '';
+            const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
+            icon.textContent = romanNumerals[perkIndex] || (perkIndex + 1).toString();
+        };
+        icon.appendChild(img);
 
         tile.appendChild(icon);
 
         // Events
         tile.addEventListener('click', () => this.togglePrestigePerk(perk.id, perkIndex));
-        tile.addEventListener('mouseenter', () => this.showTooltip(`Mastery ${perk.name}`, perk.desc));
+        tile.addEventListener('mouseenter', () => this.showTooltip(`${perk.name}`, perk.desc));
         tile.addEventListener('mouseleave', () => this.hideTooltip());
 
         return tile;
