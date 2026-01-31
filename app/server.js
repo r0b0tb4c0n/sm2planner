@@ -101,7 +101,7 @@ async function handleIssueReport(req, res) {
                 ],
                 timestamp: new Date().toISOString(),
                 footer: {
-                    text: 'SM2 Talent Calculator'
+                    text: 'SM2 Build Planner'
                 }
             };
 
@@ -248,7 +248,7 @@ fs.access(filePath, fs.constants.F_OK, (err) => {
 });
 
 server.listen(port, () => {
-  console.log(`Space Marine 2 Talent Calculator server running on port ${port}`);
+  console.log(`Space Marine 2 Build Planner server running on port ${port}`);
 });
 
 // Graceful shutdown

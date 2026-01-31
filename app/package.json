@@ -1,7 +1,7 @@
 {
-  "name": "sm2-talent-calculator",
+  "name": "sm2-build-planner",
   "version": "1.0.0",
-  "description": "Space Marine 2 Talent Calculator / Build Planner",
+  "description": "Space Marine 2 Build Planner",
   "main": "index.html",
   "scripts": {
     "start": "serve -s . -l 3000",
@@ -10,11 +10,10 @@
     "pm2:stop": "pm2 stop ecosystem.config.js",
     "pm2:restart": "pm2 restart ecosystem.config.js",
     "pm2:delete": "pm2 delete ecosystem.config.js",
-    "pm2:logs": "pm2 logs sm2-talent-calculator"
+    "pm2:logs": "pm2 logs sm2-build-planner"
   },
   "keywords": [
     "space-marine-2",
-    "talent-calculator",
     "build-planner",
     "warhammer-40k"
   ],

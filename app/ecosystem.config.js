@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   apps: [{
-    name: 'sm2-talent-calculator',
+    name: 'sm2-build-planner',
     script: 'server.js',
     instances: 1,
     autorestart: true,

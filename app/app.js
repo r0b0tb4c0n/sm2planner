@@ -1,5 +1,5 @@
-// Space Marine 2 Talent Calculator
-class TalentCalculator {
+// Space Marine 2 Build Planner
+class BuildPlanner {
     constructor() {
         this.data = null;
         this.currentClass = null;
@@ -56,8 +56,8 @@ class TalentCalculator {
             }
 
         } catch (error) {
-            console.error('Failed to initialize talent calculator:', error);
-            this.showError('Failed to load talent data. Please refresh the page.');
+            console.error('Failed to initialize perk planner:', error);
+            this.showError('Failed to load perk data. Please refresh the page.');
         }
     }
 
@@ -728,5 +728,5 @@ class TalentCalculator {
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', () => {
-    new TalentCalculator();
+    new BuildPlanner();
 });
