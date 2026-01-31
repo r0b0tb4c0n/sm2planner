@@ -36,14 +36,14 @@ const MAX_REQUESTS_PER_WINDOW = 3; // 3 requests per minute per IP
 function isRateLimited(ip) {
     const now = Date.now();
     const userRequests = rateLimiter.get(ip) || [];
-    
+
     // Clean old requests
     const recentRequests = userRequests.filter(time => now - time < RATE_LIMIT_WINDOW);
-    
+
     if (recentRequests.length >= MAX_REQUESTS_PER_WINDOW) {
         return true;
     }
-    
+
     // Add current request
     recentRequests.push(now);
     rateLimiter.set(ip, recentRequests);
@@ -52,14 +52,14 @@ function isRateLimited(ip) {
 
 async function handleIssueReport(req, res) {
     const clientIP = req.connection.remoteAddress || req.socket.remoteAddress;
-    
+
     // Rate limiting
     if (isRateLimited(clientIP)) {
         res.writeHead(429, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Rate limit exceeded. Please try again later.' }));
         return;
     }
-    
+
     let body = '';
     req.on('data', chunk => {
         body += chunk.toString();
@@ -70,24 +70,24 @@ async function handleIssueReport(req, res) {
             return;
         }
     });
-    
+
     req.on('end', async () => {
         try {
             const data = JSON.parse(body);
-            
+
             // Validate required fields
             if (!data.description || data.description.trim().length === 0) {
                 res.writeHead(400, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ error: 'Description is required' }));
                 return;
             }
-            
+
             // Sanitize and limit description length
             const description = data.description.trim().substring(0, 1000);
             const contactName = (data.contactName || '').trim().substring(0, 100);
             const contactPlatform = (data.contactPlatform || '').trim().substring(0, 100);
             const buildContext = (data.buildContext || '').trim().substring(0, 500);
-            
+
             // Create Discord embed
             const embed = {
                 title: '🐛 Issue Report',
@@ -104,7 +104,7 @@ async function handleIssueReport(req, res) {
                     text: 'SM2 Talent Calculator'
                 }
             };
-            
+
             // Add contact info if provided
             if (contactName || contactPlatform) {
                 let contactInfo = '';
@@ -119,7 +119,7 @@ async function handleIssueReport(req, res) {
                     inline: false
                 });
             }
-            
+
             // Add build context if provided
             if (buildContext) {
                 embed.fields.push({
@@ -128,12 +128,12 @@ async function handleIssueReport(req, res) {
                     inline: false
                 });
             }
-            
+
             // Send to Discord (if webhook URL is configured)
             if (!DISCORD_WEBHOOK_URL) {
                 throw new Error('Issue reporting is not configured on this server');
             }
-            
+
             const response = await fetch(DISCORD_WEBHOOK_URL, {
                 method: 'POST',
                 headers: {
@@ -141,14 +141,14 @@ async function handleIssueReport(req, res) {
                 },
                 body: JSON.stringify({ embeds: [embed] })
             });
-            
+
             if (!response.ok) {
                 throw new Error(`Discord API error: ${response.status}`);
             }
-            
+
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ success: true }));
-            
+
         } catch (error) {
             console.error('Issue report error:', error);
             res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -159,31 +159,31 @@ async function handleIssueReport(req, res) {
 
 const server = http.createServer((req, res) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
-  
+
   // Handle API endpoints
   if (req.method === 'POST' && req.url === '/api/report-issue') {
     handleIssueReport(req, res);
     return;
   }
-  
+
   // Parse URL and remove query string for file path
   let filePath = req.url.split('?')[0];
-  
+
   // Default to index.html for root and directory requests
   if (filePath === '/' || filePath.endsWith('/')) {
     filePath = '/index.html';
   }
-  
+
   // Security: prevent directory traversal
   filePath = path.normalize(filePath).replace(/^(\.\.[\/\\])+/, '');
   filePath = path.join(__dirname, filePath);
-  
+
   // Get file extension
   const extname = String(path.extname(filePath)).toLowerCase();
   const mimeType = mimeTypes[extname] || 'application/octet-stream';
-  
-  // Check if file exists
-  fs.access(filePath, fs.constants.F_OK, (err) => {
+
+// Check if file exists
+fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       // File not found - serve index.html for SPA routing
       if (req.url !== '/index.html') {
@@ -193,8 +193,15 @@ const server = http.createServer((req, res) => {
             res.writeHead(500);
             res.end('Server Error');
           } else {
+            // Inject config before serving HTML
+            let html = content.toString('utf-8');
+            const showReportButton = !!DISCORD_WEBHOOK_URL;
+            html = html.replace(
+              '</head>',
+              `<script>window.APP_CONFIG = { showReportButton: ${showReportButton} };</script></head>`
+            );
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(content, 'utf-8');
+            res.end(html, 'utf-8');
           }
         });
       } else {
@@ -203,7 +210,7 @@ const server = http.createServer((req, res) => {
       }
       return;
     }
-    
+
     // Serve the file
     fs.readFile(filePath, (error, content) => {
       if (error) {
@@ -215,11 +222,26 @@ const server = http.createServer((req, res) => {
           res.end('Server Error: ' + error.code);
         }
       } else {
-        res.writeHead(200, { 
-          'Content-Type': mimeType,
-          'Cache-Control': 'no-cache'
-        });
-        res.end(content, 'utf-8');
+        // Special handling for index.html
+        if (extname === '.html' && path.basename(filePath) === 'index.html') {
+          let html = content.toString('utf-8');
+          const showReportButton = !!DISCORD_WEBHOOK_URL;
+          html = html.replace(
+            '</head>',
+            `<script>window.APP_CONFIG = { showReportButton: ${showReportButton} };</script></head>`
+          );
+          res.writeHead(200, {
+            'Content-Type': mimeType,
+            'Cache-Control': 'no-cache'
+          });
+          res.end(html, 'utf-8');
+        } else {
+          res.writeHead(200, {
+            'Content-Type': mimeType,
+            'Cache-Control': 'no-cache'
+          });
+          res.end(content, 'utf-8');
+        }
       }
     });
   });
@@ -242,4 +264,4 @@ process.on('SIGINT', () => {
   server.close(() => {
     console.log('Process terminated');
   });
-}); 
+});
