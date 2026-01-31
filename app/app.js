@@ -3,10 +3,29 @@ class BuildPlanner {
     constructor() {
         this.data = null;
         this.currentClass = null;
-        this.selectedPerks = new Map(); // columnId -> perkId
-        this.selectedPrestige = new Set(); // perkId set
+        // Store selections across all classes using composite keys
+        // Format: "classId:columnId" -> perkId
+        this.selectedPerks = new Map();
+        // Store prestige selections per class
+        // Format: classId -> Set of perkIds
+        this.selectedPrestige = new Map();
         this.maxPrestigePerks = 4;
         this.isLoadingFromUrl = false;
+        
+        // Class ID to byte mapping (0-5 for 6 classes)
+        // Used for compact URL encoding in v2 format
+        this.classToByteMap = {
+            'assault': 0,
+            'bulwark': 1,
+            'vanguard': 2,
+            'tactical': 3,
+            'heavy': 4,
+            'sniper': 5
+        };
+        // Reverse mapping for decoding
+        this.byteToClassMap = Object.fromEntries(
+            Object.entries(this.classToByteMap).map(([k, v]) => [v, k])
+        );
 
         this.elements = {
             classTabs: document.getElementById('classTabs'),
@@ -166,10 +185,7 @@ class BuildPlanner {
     selectClass(classId) {
         const classData = this.data.classes.find(c => c.id === classId);
         if (!classData) return;
-
-        // Clear current selections for this class
-        this.clearClassSelections();
-
+ 
         this.currentClass = classData;
 
         // Update active tab
@@ -192,13 +208,15 @@ class BuildPlanner {
         if (this.currentClass) {
             this.currentClass.sections.forEach(section => {
                 section.columns.forEach(column => {
-                    this.selectedPerks.delete(column.id);
+                    // Use composite key format: "classId:columnId"
+                    const key = `${this.currentClass.id}:${column.id}`;
+                    this.selectedPerks.delete(key);
                 });
             });
+            
+            // Clear prestige selections for current class
+            this.selectedPrestige.delete(this.currentClass.id);
         }
-
-        // Clear prestige selections
-        this.selectedPrestige.clear();
     }
 
     renderPerkTree() {
@@ -249,8 +267,11 @@ class BuildPlanner {
     renderPrestigePerks() {
         this.elements.prestigeGrid.innerHTML = '';
 
+        // Get prestige selections for current class
+        const currentPrestige = this.selectedPrestige.get(this.currentClass.id) || new Set();
+
         this.currentClass.prestige.forEach((perk, index) => {
-            const perkElement = this.createPrestigeTile(perk, index);
+            const perkElement = this.createPrestigeTile(perk, index, currentPrestige);
             this.elements.prestigeGrid.appendChild(perkElement);
         });
     }
@@ -262,8 +283,9 @@ class BuildPlanner {
         tile.dataset.columnId = columnId;
         tile.dataset.perkIndex = perkIndex;
 
-        // Check if selected
-        if (this.selectedPerks.get(columnId) === perk.id) {
+        // Check if selected using composite key
+        const key = `${this.currentClass.id}:${columnId}`;
+        if (this.selectedPerks.get(key) === perk.id) {
             tile.classList.add('selected');
         }
 
@@ -292,19 +314,19 @@ class BuildPlanner {
         return tile;
     }
 
-    createPrestigeTile(perk, perkIndex) {
+    createPrestigeTile(perk, perkIndex, currentPrestige) {
         const tile = document.createElement('div');
         tile.className = 'prestige-tile';
         tile.dataset.perkId = perk.id;
         tile.dataset.perkIndex = perkIndex;
 
         // Check if selected
-        if (this.selectedPrestige.has(perk.id)) {
+        if (currentPrestige.has(perk.id)) {
             tile.classList.add('selected');
         }
 
         // Check if should be disabled (max prestige reached and not selected)
-        if (this.selectedPrestige.size >= this.maxPrestigePerks && !this.selectedPrestige.has(perk.id)) {
+        if (currentPrestige.size >= this.maxPrestigePerks && !currentPrestige.has(perk.id)) {
             tile.classList.add('disabled');
         }
 
@@ -318,8 +340,13 @@ class BuildPlanner {
         img.onerror = () => {
             // Fallback to Roman numeral if image fails to load
             icon.innerHTML = '';
-            const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'];
-            icon.textContent = romanNumerals[perkIndex] || (perkIndex + 1).toString();
+            const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+            if (perkIndex < romanNumerals.length) {
+                icon.textContent = romanNumerals[perkIndex];
+            } else {
+                // Fallback to number if beyond VII
+                icon.textContent = (perkIndex + 1).toString();
+            }
         };
         icon.appendChild(img);
 
@@ -334,14 +361,16 @@ class BuildPlanner {
     }
 
     togglePerk(columnId, perkId, perkIndex) {
-        const currentSelection = this.selectedPerks.get(columnId);
+        // Use composite key to track selections across all classes
+        const key = `${this.currentClass.id}:${columnId}`;
+        const currentSelection = this.selectedPerks.get(key);
 
         if (currentSelection === perkId) {
             // Deselect
-            this.selectedPerks.delete(columnId);
+            this.selectedPerks.delete(key);
         } else {
             // Select (auto-deselects previous in column)
-            this.selectedPerks.set(columnId, perkId);
+            this.selectedPerks.set(key, perkId);
         }
 
         // Re-render to update visual state
@@ -350,13 +379,19 @@ class BuildPlanner {
     }
 
     togglePrestigePerk(perkId, perkIndex) {
-        if (this.selectedPrestige.has(perkId)) {
+        // Ensure prestige set exists for current class
+        if (!this.selectedPrestige.has(this.currentClass.id)) {
+            this.selectedPrestige.set(this.currentClass.id, new Set());
+        }
+        const currentPrestige = this.selectedPrestige.get(this.currentClass.id);
+
+        if (currentPrestige.has(perkId)) {
             // Deselect
-            this.selectedPrestige.delete(perkId);
+            currentPrestige.delete(perkId);
         } else {
             // Select if under limit
-            if (this.selectedPrestige.size < this.maxPrestigePerks) {
-                this.selectedPrestige.add(perkId);
+            if (currentPrestige.size < this.maxPrestigePerks) {
+                currentPrestige.add(perkId);
             }
         }
 
@@ -368,6 +403,7 @@ class BuildPlanner {
     resetClass() {
         if (!this.currentClass) return;
 
+        // Clear selections for current class only
         this.clearClassSelections();
         this.renderPerkTree();
         this.renderPrestigePerks();
@@ -375,6 +411,7 @@ class BuildPlanner {
     }
 
     resetAll() {
+        // Clear all selections across all classes
         this.selectedPerks.clear();
         this.selectedPrestige.clear();
 
@@ -387,23 +424,61 @@ class BuildPlanner {
     }
 
     // URL Encoding/Decoding
-    encodeBuild() {
-        if (!this.currentClass) return '';
+    // Version 1 (Legacy): 1.classId.payload - Single class, long format
+    // Version 2 (Current): 2.AXXXXXXXX;BXXXXXXXX - Multi-class, compact format
+    //   Where A,B are class bytes (0-5) and XXXXXXXX is base64url encoded build data
+    
+    encodeAllBuilds() {
+        // Encode all classes that have selections using v2 format
+        // Used for the browser URL bar to maintain state across all classes
+        const builds = [];
 
-        const version = 1;
-        const classId = this.currentClass.id;
+        this.data.classes.forEach(classData => {
+            const classByte = this.classToByteMap[classData.id];
+            if (classByte === undefined) return;
 
-        // Calculate total columns across all sections
-        let totalColumns = 0;
-        this.currentClass.sections.forEach(section => {
-            totalColumns += section.columns.length;
+            // Check if this class has any selections
+            const hasPerks = Array.from(this.selectedPerks.keys()).some(key => key.startsWith(`${classData.id}:`));
+            const hasPrestige = this.selectedPrestige.has(classData.id) && this.selectedPrestige.get(classData.id).size > 0;
+
+            if (!hasPerks && !hasPrestige) return;
+
+            const buildData = this.encodeClassBuild(classData);
+            if (buildData) {
+                builds.push(`${classByte}${buildData}`);
+            }
         });
 
-        // Create nibbles array (4 bits per column)
+        if (builds.length === 0) return '';
+
+        // Version 2 format: 2.build1;build2;build3
+        return `2.${builds.join(';')}`;
+    }
+
+    encodeCurrentBuild() {
+        // Encode only the current class using v2 format
+        // Used for the share modal to share a single class build
+        if (!this.currentClass) return '';
+
+        const classByte = this.classToByteMap[this.currentClass.id];
+        if (classByte === undefined) return '';
+
+        const buildData = this.encodeClassBuild(this.currentClass);
+        if (!buildData) return '';
+
+        // Version 2 format: 2.Axxxxxxxx (single class)
+        return `2.${classByte}${buildData}`;
+    }
+
+    encodeClassBuild(classData) {
+        // Encode a single class's perk and prestige selections
         const nibbles = [];
-        this.currentClass.sections.forEach(section => {
+        
+        // Calculate total columns across all sections
+        classData.sections.forEach(section => {
             section.columns.forEach(column => {
-                const selectedPerkId = this.selectedPerks.get(column.id);
+                const key = `${classData.id}:${column.id}`;
+                const selectedPerkId = this.selectedPerks.get(key);
                 if (selectedPerkId) {
                     // Find index of selected perk in column
                     const perkIndex = column.perks.findIndex(p => p.id === selectedPerkId);
@@ -414,6 +489,11 @@ class BuildPlanner {
             });
         });
 
+        // Pad nibbles to even count if needed
+        if (nibbles.length % 2 === 1) {
+            nibbles.push(0);
+        }
+
         // Pack nibbles into bytes (2 nibbles per byte)
         const bytes = [];
         for (let i = 0; i < nibbles.length; i += 2) {
@@ -422,15 +502,11 @@ class BuildPlanner {
             bytes.push((high << 4) | low);
         }
 
-        // Pad nibbles to even count if needed
-        if (nibbles.length % 2 === 1) {
-            nibbles.push(0);
-        }
-
         // Add prestige byte (7 bits for 7 prestige perks)
         let prestigeByte = 0;
-        this.currentClass.prestige.forEach((perk, index) => {
-            if (this.selectedPrestige.has(perk.id)) {
+        const currentPrestige = this.selectedPrestige.get(classData.id) || new Set();
+        classData.prestige.forEach((perk, index) => {
+            if (currentPrestige.has(perk.id)) {
                 prestigeByte |= (1 << index);
             }
         });
@@ -439,28 +515,47 @@ class BuildPlanner {
         bytes.push(prestigeByte);
 
         // Convert to base64url
-        const payload = this.bytesToBase64Url(new Uint8Array(bytes));
-
-        return `${version}.${classId}.${payload}`;
+        return this.bytesToBase64Url(new Uint8Array(bytes));
     }
 
-    decodeBuild(buildString) {
+    decodeBuilds(buildString) {
+        // Decode builds from URL - supports both v1 and v2 formats
+        try {
+            const parts = buildString.split('.');
+            if (parts.length < 2) return null;
+
+            const version = parseInt(parts[0]);
+
+            if (version === 1) {
+                // Legacy v1 format: 1.classId.payload
+                return this.decodeV1Build(buildString);
+            } else if (version === 2) {
+                // New v2 format: 2.AXXXXXXXX;BXXXXXXXX
+                return this.decodeV2Builds(buildString);
+            } else {
+                console.warn('Unsupported build version:', version);
+                return null;
+            }
+
+        } catch (error) {
+            console.error('Failed to decode builds:', error);
+            return null;
+        }
+    }
+
+    decodeV1Build(buildString) {
+        // Decode legacy v1 format: 1.classId.payload
+        // Automatically upgrades to v2 format by converting to new data structure
         try {
             const parts = buildString.split('.');
             if (parts.length !== 3) return null;
 
             const [versionStr, classId, payload] = parts;
-            const version = parseInt(versionStr);
-
-            if (version !== 1) {
-                console.warn('Unsupported build version:', version);
-                return null;
-            }
 
             // Find class
             const classData = this.data.classes.find(c => c.id === classId);
             if (!classData) {
-                console.warn('Unknown class:', classId);
+                console.warn('Unknown class in v1 build:', classId);
                 return null;
             }
 
@@ -481,7 +576,7 @@ class BuildPlanner {
                 expectedNibbles += section.columns.length;
             });
 
-            // Apply perk selections
+            // Apply perk selections using new composite key format
             const selectedPerks = new Map();
             let nibbleIndex = 0;
 
@@ -491,7 +586,8 @@ class BuildPlanner {
                         const perkIndex = nibbles[nibbleIndex];
                         if (perkIndex > 0 && perkIndex <= column.perks.length) {
                             const perk = column.perks[perkIndex - 1]; // Convert back to 0-based
-                            selectedPerks.set(column.id, perk.id);
+                            const key = `${classId}:${column.id}`; // Use composite key for v2 compatibility
+                            selectedPerks.set(key, perk.id);
                         }
                     }
                     nibbleIndex++;
@@ -499,17 +595,22 @@ class BuildPlanner {
             });
 
             // Apply prestige selections (stored as separate byte after all nibble pairs)
-            const selectedPrestige = new Set();
-            // The prestige byte is the last byte, separate from the nibble-packed bytes
+            const selectedPrestige = new Map();
             const perkByteCount = Math.ceil(expectedNibbles / 2);
             if (bytes.length > perkByteCount) {
                 const prestigeByte = bytes[perkByteCount];
+                const prestigeSet = new Set();
                 classData.prestige.forEach((perk, index) => {
                     if (prestigeByte & (1 << index)) {
-                        selectedPrestige.add(perk.id);
+                        prestigeSet.add(perk.id);
                     }
                 });
+                if (prestigeSet.size > 0) {
+                    selectedPrestige.set(classId, prestigeSet);
+                }
             }
+
+            console.log('Upgraded v1 build to v2 format');
 
             return {
                 classId,
@@ -518,12 +619,105 @@ class BuildPlanner {
             };
 
         } catch (error) {
-            console.error('Failed to decode build:', error);
+            console.error('Failed to decode v1 build:', error);
+            return null;
+        }
+    }
+
+    decodeV2Builds(buildString) {
+        // Decode v2 format: 2.AXXXXXXXX;BXXXXXXXX;CXXXXXXXX
+        try {
+            const parts = buildString.split('.');
+            if (parts.length !== 2) return null;
+
+            const [versionStr, buildsData] = parts;
+            const builds = buildsData.split(';');
+            
+            const allSelectedPerks = new Map();
+            const allSelectedPrestige = new Map();
+            let lastClassId = null;
+
+            for (const build of builds) {
+                if (!build || build.length < 2) continue;
+
+                // First character is the class byte (0-5)
+                const classByte = parseInt(build.charAt(0));
+                const classId = this.byteToClassMap[classByte];
+                
+                if (!classId) {
+                    console.warn('Unknown class byte:', classByte);
+                    continue;
+                }
+
+                lastClassId = classId;
+                const payload = build.substring(1);
+
+                const classData = this.data.classes.find(c => c.id === classId);
+                if (!classData) continue;
+
+                const bytes = this.base64UrlToBytes(payload);
+                if (!bytes || bytes.length === 0) continue;
+
+                // Decode nibbles from all bytes
+                const nibbles = [];
+                bytes.forEach(byte => {
+                    nibbles.push((byte >> 4) & 0xF); // High nibble
+                    nibbles.push(byte & 0xF);        // Low nibble
+                });
+
+                // Calculate expected nibbles for sections
+                let expectedNibbles = 0;
+                classData.sections.forEach(section => {
+                    expectedNibbles += section.columns.length;
+                });
+
+                // Apply perk selections
+                let nibbleIndex = 0;
+                classData.sections.forEach(section => {
+                    section.columns.forEach(column => {
+                        if (nibbleIndex < nibbles.length) {
+                            const perkIndex = nibbles[nibbleIndex];
+                            if (perkIndex > 0 && perkIndex <= column.perks.length) {
+                                const perk = column.perks[perkIndex - 1]; // Convert back to 0-based
+                                const key = `${classId}:${column.id}`;
+                                allSelectedPerks.set(key, perk.id);
+                            }
+                        }
+                        nibbleIndex++;
+                    });
+                });
+
+                // Apply prestige selections (stored as separate byte after all nibble pairs)
+                const perkByteCount = Math.ceil(expectedNibbles / 2);
+                if (bytes.length > perkByteCount) {
+                    const prestigeByte = bytes[perkByteCount];
+                    const prestigeSet = new Set();
+                    classData.prestige.forEach((perk, index) => {
+                        if (prestigeByte & (1 << index)) {
+                            prestigeSet.add(perk.id);
+                        }
+                    });
+                    if (prestigeSet.size > 0) {
+                        allSelectedPrestige.set(classId, prestigeSet);
+                    }
+                }
+            }
+
+            return {
+                classId: lastClassId, // Use the last class from the URL
+                selectedPerks: allSelectedPerks,
+                selectedPrestige: allSelectedPrestige
+            };
+
+        } catch (error) {
+            console.error('Failed to decode v2 builds:', error);
             return null;
         }
     }
 
     bytesToBase64Url(bytes) {
+        // Convert byte array to base64url encoding
+        // base64url uses '-' and '_' instead of '+' and '/' and removes padding '='
         const binary = Array.from(bytes, byte => String.fromCharCode(byte)).join('');
         return btoa(binary)
             .replace(/\+/g, '-')
@@ -532,6 +726,7 @@ class BuildPlanner {
     }
 
     base64UrlToBytes(str) {
+        // Convert base64url string back to byte array
         try {
             // Convert base64url to base64
             const base64 = str
@@ -551,7 +746,10 @@ class BuildPlanner {
     }
 
     updateUrl() {
-        const buildString = this.encodeBuild();
+        // Update browser URL with all class builds using v2 format
+        // This maintains state when refreshing or sharing the full URL
+        // V1 URLs are automatically upgraded to v2 when any change is made
+        const buildString = this.encodeAllBuilds();
         const url = new URL(window.location);
 
         if (buildString) {
@@ -564,22 +762,32 @@ class BuildPlanner {
     }
 
     loadFromUrl() {
+        // Load build data from URL parameter
+        // Supports both v1 (legacy) and v2 (current) formats
+        // V1 URLs are automatically upgraded to v2 format
         const urlParams = new URLSearchParams(window.location.search);
         const buildString = urlParams.get('b');
 
         if (buildString) {
-            const buildData = this.decodeBuild(buildString);
+            const buildData = this.decodeBuilds(buildString);
             if (buildData) {
                 this.isLoadingFromUrl = true;
 
-                this.selectClass(buildData.classId);
                 this.selectedPerks = buildData.selectedPerks;
                 this.selectedPrestige = buildData.selectedPrestige;
 
-                this.renderPerkTree();
-                this.renderPrestigePerks();
+                // Select the class from the URL, or first class with data
+                const classToSelect = buildData.classId || this.data.classes[0].id;
+                this.selectClass(classToSelect);
 
                 this.isLoadingFromUrl = false;
+
+                // Auto-upgrade v1 URLs to v2 format in the browser
+                if (buildString.startsWith('1.')) {
+                    console.log('Auto-upgrading URL from v1 to v2 format');
+                    this.updateUrl();
+                }
+
                 return true;
             }
         }
@@ -589,9 +797,15 @@ class BuildPlanner {
 
     // UI Methods
     showShareModal() {
-        const buildString = this.encodeBuild();
+        // Generate shareable URL with only the current class build using v2 format
+        const buildString = this.encodeCurrentBuild();
         const url = new URL(window.location);
-        url.searchParams.set('b', buildString);
+        
+        if (buildString) {
+            url.searchParams.set('b', buildString);
+        } else {
+            url.searchParams.delete('b');
+        }
 
         this.elements.shareUrl.value = url.toString();
         this.elements.shareModal.classList.add('show');
@@ -708,7 +922,7 @@ class BuildPlanner {
 
     async submitIssueReport(description, contactName, contactPlatform) {
         // Use backend endpoint instead of direct Discord webhook
-        const buildString = this.encodeBuild();
+        const buildString = this.encodeAllBuilds();
         const currentUrl = window.location.href;
 
         let buildContext = '';
