@@ -11,16 +11,16 @@ class BuildPlanner {
         this.selectedPrestige = new Map();
         this.maxPrestigePerks = 4;
         this.isLoadingFromUrl = false;
-        
+
         // Class ID to byte mapping (0-5 for 6 classes)
         // Used for compact URL encoding in v2 format
         this.classToByteMap = {
-            'assault': 0,
-            'bulwark': 1,
-            'vanguard': 2,
-            'tactical': 3,
-            'heavy': 4,
-            'sniper': 5
+            'assault': 'A',
+            'bulwark': 'B',
+            'vanguard': 'V',
+            'tactical': 'M',
+            'heavy': 'H',
+            'sniper': 'S'
         };
         // Reverse mapping for decoding
         this.byteToClassMap = Object.fromEntries(
@@ -185,7 +185,7 @@ class BuildPlanner {
     selectClass(classId) {
         const classData = this.data.classes.find(c => c.id === classId);
         if (!classData) return;
- 
+
         this.currentClass = classData;
 
         // Update active tab
@@ -213,7 +213,7 @@ class BuildPlanner {
                     this.selectedPerks.delete(key);
                 });
             });
-            
+
             // Clear prestige selections for current class
             this.selectedPrestige.delete(this.currentClass.id);
         }
@@ -427,7 +427,7 @@ class BuildPlanner {
     // Version 1 (Legacy): 1.classId.payload - Single class, long format
     // Version 2 (Current): 2.AXXXXXXXX;BXXXXXXXX - Multi-class, compact format
     //   Where A,B are class bytes (0-5) and XXXXXXXX is base64url encoded build data
-    
+
     encodeAllBuilds() {
         // Encode all classes that have selections using v2 format
         // Used for the browser URL bar to maintain state across all classes
@@ -452,7 +452,7 @@ class BuildPlanner {
         if (builds.length === 0) return '';
 
         // Version 2 format: 2.build1;build2;build3
-        return `2.${builds.join(';')}`;
+        return `2.${builds.join('.')}`;
     }
 
     encodeCurrentBuild() {
@@ -473,7 +473,7 @@ class BuildPlanner {
     encodeClassBuild(classData) {
         // Encode a single class's perk and prestige selections
         const nibbles = [];
-        
+
         // Calculate total columns across all sections
         classData.sections.forEach(section => {
             section.columns.forEach(column => {
@@ -625,14 +625,14 @@ class BuildPlanner {
     }
 
     decodeV2Builds(buildString) {
-        // Decode v2 format: 2.AXXXXXXXX;BXXXXXXXX;CXXXXXXXX
+        // Decode v2 format: 2.AXXXXXXXX.BXXXXXXXX.CXXXXXXXX
         try {
             const parts = buildString.split('.');
-            if (parts.length !== 2) return null;
+            if (parts.length < 2) return null;  // Changed !== 2 to < 2
 
-            const [versionStr, buildsData] = parts;
-            const builds = buildsData.split(';');
-            
+            const versionStr = parts[0];
+            const builds = parts.slice(1);  // Everything after version number
+
             const allSelectedPerks = new Map();
             const allSelectedPrestige = new Map();
             let lastClassId = null;
@@ -640,10 +640,10 @@ class BuildPlanner {
             for (const build of builds) {
                 if (!build || build.length < 2) continue;
 
-                // First character is the class byte (0-5)
-                const classByte = parseInt(build.charAt(0));
+                // First character is the class letter (A, B, V, M, H, S)
+                const classByte = build.charAt(0);
                 const classId = this.byteToClassMap[classByte];
-                
+
                 if (!classId) {
                     console.warn('Unknown class byte:', classByte);
                     continue;
@@ -800,7 +800,7 @@ class BuildPlanner {
         // Generate shareable URL with only the current class build using v2 format
         const buildString = this.encodeCurrentBuild();
         const url = new URL(window.location);
-        
+
         if (buildString) {
             url.searchParams.set('b', buildString);
         } else {
