@@ -6,6 +6,7 @@ class BuildPlanner {
         this.selectedPerks = new Map(); // columnId -> perkId
         this.selectedPrestige = new Set(); // perkId set
         this.maxPrestigePerks = 4;
+        this.isLoadingFromUrl = false;
 
         this.elements = {
             classTabs: document.getElementById('classTabs'),
@@ -48,10 +49,10 @@ class BuildPlanner {
             this.renderClassTabs();
 
             // Load from URL if present
-            this.loadFromUrl();
+            const loadedFromUrl = this.loadFromUrl();
 
             // If no URL data, select first class
-            if (!this.currentClass && this.data.classes.length > 0) {
+            if (!loadedFromUrl && this.data.classes.length > 0) {
                 this.selectClass(this.data.classes[0].id);
             }
 
@@ -180,8 +181,10 @@ class BuildPlanner {
         this.renderPerkTree();
         this.renderPrestigePerks();
 
-        // Update URL
-        this.updateUrl();
+        // Only update URL if not loading from URL
+        if (!this.isLoadingFromUrl) {
+            this.updateUrl();
+        }
     }
 
     clearClassSelections() {
@@ -419,21 +422,21 @@ class BuildPlanner {
             bytes.push((high << 4) | low);
         }
 
-        // Add prestige nibble (4 bits for 4 prestige perks)
-        let prestigeNibble = 0;
+        // Pad nibbles to even count if needed
+        if (nibbles.length % 2 === 1) {
+            nibbles.push(0);
+        }
+
+        // Add prestige byte (7 bits for 7 prestige perks)
+        let prestigeByte = 0;
         this.currentClass.prestige.forEach((perk, index) => {
             if (this.selectedPrestige.has(perk.id)) {
-                prestigeNibble |= (1 << index);
+                prestigeByte |= (1 << index);
             }
         });
 
-        // If we have an odd number of nibbles, pack the prestige with a 0 nibble
-        if (nibbles.length % 2 === 1) {
-            bytes.push((prestigeNibble << 4)); // Prestige in high nibble, 0 in low
-        } else {
-            // Add as separate nibble pair
-            bytes.push(prestigeNibble);
-        }
+        // Always add prestige as a separate full byte
+        bytes.push(prestigeByte);
 
         // Convert to base64url
         const payload = this.bytesToBase64Url(new Uint8Array(bytes));
@@ -495,12 +498,14 @@ class BuildPlanner {
                 });
             });
 
-            // Apply prestige selections (from remaining nibbles)
+            // Apply prestige selections (stored as separate byte after all nibble pairs)
             const selectedPrestige = new Set();
-            if (nibbleIndex < nibbles.length) {
-                const prestigeNibble = nibbles[nibbleIndex];
+            // The prestige byte is the last byte, separate from the nibble-packed bytes
+            const perkByteCount = Math.ceil(expectedNibbles / 2);
+            if (bytes.length > perkByteCount) {
+                const prestigeByte = bytes[perkByteCount];
                 classData.prestige.forEach((perk, index) => {
-                    if (prestigeNibble & (1 << index)) {
+                    if (prestigeByte & (1 << index)) {
                         selectedPrestige.add(perk.id);
                     }
                 });
@@ -565,9 +570,16 @@ class BuildPlanner {
         if (buildString) {
             const buildData = this.decodeBuild(buildString);
             if (buildData) {
+                this.isLoadingFromUrl = true;
+
+                this.selectClass(buildData.classId);
                 this.selectedPerks = buildData.selectedPerks;
                 this.selectedPrestige = buildData.selectedPrestige;
-                this.selectClass(buildData.classId);
+
+                this.renderPerkTree();
+                this.renderPrestigePerks();
+
+                this.isLoadingFromUrl = false;
                 return true;
             }
         }
