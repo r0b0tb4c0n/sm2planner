@@ -5,7 +5,7 @@ class BuildPlanner {
         this.currentClass = null;
         this.selectedPerks = new Map(); // columnId -> perkId
         this.selectedPrestige = new Set(); // perkId set
-        this.maxPrestigePerks = 8;
+        this.maxPrestigePerks = 4;
 
         this.elements = {
             classTabs: document.getElementById('classTabs'),
