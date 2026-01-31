@@ -6,7 +6,6 @@ import re
 from pathlib import Path
 
 def main():
-    print("Updating class perk data")
     classes = ["Assault", "Bulwark", "Vanguard", "Tactical", "Heavy", "Sniper"]
 
     for class_name in classes:
