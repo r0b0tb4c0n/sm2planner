@@ -20,7 +20,8 @@ class BuildPlanner {
             'vanguard': 'V',
             'tactical': 'M',
             'heavy': 'H',
-            'sniper': 'S'
+            'sniper': 'S',
+            'techmarine': 'T'
         };
         // Reverse mapping for decoding
         this.byteToClassMap = Object.fromEntries(
@@ -83,7 +84,7 @@ class BuildPlanner {
 
     async loadClassData() {
         // List of available classes
-        const classFiles = ['assault', 'bulwark', 'vanguard', 'tactical', 'heavy', 'sniper'];
+        const classFiles = ['assault', 'bulwark', 'vanguard', 'tactical', 'heavy', 'sniper', 'techmarine'];
         const classes = [];
 
         // Load each class file
