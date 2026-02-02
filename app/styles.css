@@ -13,7 +13,7 @@ html {
 body {
     font-family: 'Orbitron', monospace;
     background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #0f0f0f 100%);
-    background-image: 
+    background-image:
         radial-gradient(circle at 25% 25%, rgba(139, 115, 85, 0.05) 0%, transparent 50%),
         radial-gradient(circle at 75% 75%, rgba(139, 115, 85, 0.03) 0%, transparent 50%);
     background-attachment: fixed;
@@ -183,7 +183,8 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    min-width: 120px;
+    width: 140px;
+    flex-shrink: 0;
     backdrop-filter: blur(5px);
 }
 
@@ -711,12 +712,12 @@ body {
     .sections {
         gap: 1.5rem;
     }
-    
+
     .section[data-section-id="core"],
     .section[data-section-id="gear"] {
         max-width: 350px;
     }
-    
+
     .section[data-section-id="team"],
     .section[data-section-id="signature"] {
         max-width: 180px;
@@ -727,26 +728,26 @@ body {
     .sections {
         gap: 1rem;
     }
-    
+
     .section {
         padding: 1rem 0.75rem;
     }
-    
+
     .section[data-section-id="core"],
     .section[data-section-id="gear"] {
         max-width: 300px;
     }
-    
+
     .section[data-section-id="team"],
     .section[data-section-id="signature"] {
         max-width: 160px;
     }
-    
+
     .perk-tile {
         width: 70px;
         height: 70px;
     }
-    
+
     .perk-icon {
         width: 50px;
         height: 50px;
@@ -758,22 +759,22 @@ body {
         padding: 1rem;
         height: auto;
     }
-    
+
     .perk-tree {
         height: auto;
         overflow: visible;
     }
-    
+
     .sections {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .section {
         max-width: 400px;
         margin-bottom: 2rem;
     }
-    
+
     .section-columns {
         gap: 2rem;
     }
@@ -785,43 +786,43 @@ body {
         gap: 1rem;
         padding: 1rem;
     }
-    
+
     .title {
         font-size: 1.5rem;
     }
-    
+
     .controls {
         justify-content: center;
     }
-    
+
     .class-tabs {
         gap: 0.5rem;
     }
-    
+
     .class-tab {
-        min-width: 100px;
+        width: 100px; /* Smaller fixed width for mobile */
         padding: 0.75rem;
     }
-    
+
     .class-tab-icon {
         width: 50px;
         height: 50px;
     }
-    
+
     .class-tab-name {
         font-size: 0.8rem;
     }
-    
+
     .section {
         max-width: 100%;
     }
-    
+
     .prestige-grid {
         gap: 0.75rem;
     }
-    
+
     .prestige-tile {
         width: 60px;
         height: 60px;
     }
-} 
+}
